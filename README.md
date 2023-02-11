@@ -1,4 +1,4 @@
 
-<img width="708" alt="Screenshot 2023-02-11 at 3 00 45 PM" src="https://user-images.githubusercontent.com/7522096/218247684-0babf011-0d33-4a4f-9265-6a751095741c.png">
+![oasis](https://user-images.githubusercontent.com/7522096/218247961-5ec65ef7-c731-4dd3-9fdf-6541a268941e.png)
 
 ### Oasis Marketplace - Open Source AI NFT Marketplace
