@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< Updated upstream
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -76,6 +77,8 @@
     --card-border-rgb: 200, 200, 200;
   }
 }
+=======
+>>>>>>> Stashed changes
 
 * {
   box-sizing: border-box;
@@ -109,3 +112,8 @@ a {
     color-scheme: dark;
   }
 }
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
