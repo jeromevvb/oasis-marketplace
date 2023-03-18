@@ -15,8 +15,15 @@ import {
   NumberDecrementStepper,
   Link
 } from '@chakra-ui/react';
+import { useState } from 'react';
 
 export default function Mint() {
+
+  const [isLoading, setIsLoading] = useState(false)
+  
+  const handleClick = () => {
+    setIsLoading(status => !status)
+  }
 
   return (
     <>
@@ -74,10 +81,12 @@ export default function Mint() {
                 }}>
                   <Flex align={'center'} justify={'center'}>
                     <Button
-                      loadingText="Submitting"
+                      loadingText="Minting"
                       size="lg"
                       bg={'navbar.marketplace'}
                       color={'white'}
+                      isLoading={isLoading}
+                      onClick={handleClick}
                       _hover={{
                       bg: 'blue.500',
                       }}>

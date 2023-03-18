@@ -32,7 +32,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
       textDecoration: 'none',
       bg: 'navbar.marketplace',
     }}
-    href={`/${Link}`}>
+    href={`/${Links[0]}`}>
     {children}
   </Link>
 );
@@ -47,11 +47,7 @@ export default function Header() {
 
         <Flex h={16} align={'center'} justify={'space-between'}>
           <HStack spacing={8} align={'center'}>
-              <Link
-                href={'/'}
-                _hover={{
-                  bg: 'navbar.marketplace',
-                }}>
+              <Link href={'/'}>
               <Image
                 id="logo"
                 src="/../public/logo.png"

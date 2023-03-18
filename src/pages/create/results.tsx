@@ -2,6 +2,7 @@ import {Box, Heading, Button, Stack , Link, Image} from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 
 export default function Results() {
+
   return (
       <Box textAlign="center" py={10} px={6} bg={'background.color'}>
         <CheckCircleIcon boxSize={'50px'} color={'navbar.marketplace'} />
@@ -40,11 +41,11 @@ export default function Results() {
           </Link>
           <Link href={'/mint'}>
           <Button
-          size={'lg'}
-          rounded={'lg'}
+            size={'lg'}
+            rounded={'lg'}
             bg={'#C26D80'}
             width={'100%'}
-          _hover={{
+            _hover={{
           bg: '#F54970'
           }}>
           Mint

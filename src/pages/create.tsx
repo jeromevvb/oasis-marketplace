@@ -7,17 +7,15 @@ import {
   Stack,
   Link
 } from '@chakra-ui/react';
-import { Children } from 'react';
+import {useState} from 'react';
 
 
 export default function Create() {
+
+  const [isLoading, setIsLoading] = useState(false)
   
   const handleClick = () => {
-    <Button
-      isLoading
-      loadingText={'Creating'}
-      >
-    </Button>
+    setIsLoading(status => !status)
   }
 
   return (
@@ -58,7 +56,10 @@ export default function Create() {
                 bg={'navbar.marketplace'}
                 color={'navbar.oasis'}
                 _hover={{
-                  bg: 'blue.500',}}
+                  bg: 'blue.500',
+                }}
+                isLoading={isLoading}
+                loadingText={'Creating'}
                 onClick={handleClick}>
                 Create
                 </Button>

@@ -1,18 +1,16 @@
-import { Flex, Spacer} from '@chakra-ui/react';
-import Card from '@/components/Card/card';
+import { Flex, Spacer } from "@chakra-ui/react";
+import Card from "@/components/common/Card/card";
 
-export default function Explore () {
+export default function Explore() {
   return (
     <>
-      <Flex bg={'background.color'}>
-        <Card/>
+      <Flex bg={"background.color"}>
+        <Card />
         <Spacer />
-        <Card/>
+        <Card />
         <Spacer />
-        <Card/>
+        <Card />
       </Flex>
-      </>
-  )
+    </>
+  );
 }
-
-
