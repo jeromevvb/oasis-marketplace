@@ -1,5 +1,3 @@
-
-
 export interface ButtonProps {
   onClick?(event: React.MouseEvent<HTMLElement>): void
   isDisabled?: boolean
@@ -7,17 +5,25 @@ export interface ButtonProps {
   children: string
 }
 
-const Button = (props: ButtonProps) => {
+export default function Button1 (props: ButtonProps) {
   const { children, onClick, isDisabled, isLoading } = props
 
-  let className = `rounded-lg bg-oasis-700 hover:bg-oasis-900 text-white font-bold py-2 px-4 rounded`
+  let Default = `bg={'navbar.marketplace'}
+  text={'white}
+  color={'navbar.oasis'}
+  font={'bold'}
+  _hover={{
+    bg: 'blue.500',
+  }}`
+  
+  // rounded-lg  py-2 px-4 rounded`
 
   if (isDisabled) {
-    className += ' opacity-50 cursor-not-allowed'
+    Default += `opacity={'50%'} cursor={'not-allowed'}`
   }
 
   if (isLoading) {
-    className += ' opacity-50 cursor-not-allowed inline-flex items-center'
+    Default += `opacity={'50%'} cursor={'not-allowed'}`
   }
 
   const Loader = () => {
@@ -29,7 +35,7 @@ const Button = (props: ButtonProps) => {
         viewBox='0 0 24 24'
       >
         <circle
-          className='opacity-25'
+          opacity={'25%'}
           cx='12'
           cy='12'
           r='10'
@@ -38,7 +44,7 @@ const Button = (props: ButtonProps) => {
         >
         </circle>
         <path
-          className='opacity-75'
+          opacity={'75%'}
           fill='currentColor'
           d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
         ></path>
@@ -47,11 +53,10 @@ const Button = (props: ButtonProps) => {
   }
 
   return (
-    <button onClick={onClick} disabled={isDisabled} className={className}>
+    <button onClick={onClick} disabled={isDisabled} className={Default} >
       {isLoading && <Loader />}
       {children}
     </button>
   )
 }
 
-export default Button
