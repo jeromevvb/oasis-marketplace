@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import Header from '@/components/Header';
 
-/* 👇 Dosis fonts */
+// 👇 Dosis fonts 
     
 import '@fontsource/dosis';
 import '@fontsource/dosis/700.css';

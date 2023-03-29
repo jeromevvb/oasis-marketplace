@@ -58,7 +58,7 @@ export default function Results() {
         </Link>
         
         {/* Mint Button */}
-        <Link href={'/mint'} _hover={{decoration: 'none'}}>
+        <Link href={'/Create/Mint'} _hover={{decoration: 'none'}}>
           <Button
             size={'lg'}
             rounded={'lg'}
