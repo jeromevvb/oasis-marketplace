@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 // 👇 Dosis fonts 
     
@@ -30,7 +31,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <Header />
-      <Component {...pageProps}/>
+      <Component {...pageProps} />
+      <Footer />
     </ChakraProvider>
   )
 }

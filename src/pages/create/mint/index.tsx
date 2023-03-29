@@ -95,25 +95,24 @@ export default function Mint() {
 
               {/* Stacking of Buttons */}
             <Stack spacing={10} pt={2}>
-              <Link
-                href={'/'}
-                _hover={{ textDecoration: 'none' }}>
+              
                 
                 {/* Container for Buttons */}
                 <Flex align={'center'} justify={'center'}>
-                  <Button
+                    <Button
+                      as={'a'}
+                      href={'/create/mint/results'}
                     loadingText="Minting"
                     size="lg"
                     bg={'navbar.marketplace'}
                     color={'white'}
                     isLoading={isLoading}
-                    onClick={handleClick}
+                      onClick={handleClick}
+                      w={'fit'}
                     _hover={{bg: 'blue.500'}}>
                       Mint
                     </Button>
                   </Flex>
-
-              </Link>
             </Stack>
               
           </Stack>

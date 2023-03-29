@@ -13,7 +13,7 @@ import {
 interface NavItem {
   name: string;
   subLabel?: string;
-  children?: Array<NavItem>;
+  children?: Array<NavItem>
   href?: string;
 }
 

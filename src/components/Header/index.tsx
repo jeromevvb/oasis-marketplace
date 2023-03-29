@@ -4,7 +4,6 @@ import MobileNav from "./Devices/mobile";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
   Collapse,
   Flex,
   IconButton,
@@ -18,10 +17,10 @@ export default function Header() {
   return (
     <>
       {/*👇 Container for whole Header */} 
-      <Box bg={'navbar.background'} px={4}>
+      <Box bg={'navbar.background'} px={4}  >
 
         {/* Container for Header content */}
-        <Flex h={16} align={'center'} justify={'space-between'}>
+        <Flex h={16} align={'center'} justify={'space-between'} >
 
           {/* Logo */}
           <Logo />

@@ -46,28 +46,31 @@ export default function Results() {
         justify={'center'}>
         
         {/* Try Again Button */}
-        <Link href={'/create'} _hover={{decoration: 'none'}}>
+     
           <Button
+            as={'a'}
+            href={'/create'}
             size={'lg'}
             rounded={'lg'}
             bg={'navbar.marketplace'}
-            width={'100%'}
+            width={'fit'}
             _hover={{bg: 'blue.500'}}>
             Try Again
           </Button>
-        </Link>
         
         {/* Mint Button */}
-        <Link href={'/Create/Mint'} _hover={{decoration: 'none'}}>
+        
           <Button
+            as={'a'}
+            href={'/create/mint'}
             size={'lg'}
             rounded={'lg'}
             bg={'#C26D80'}
-            width={'100%'}
+            width={'fit'}
             _hover={{bg: '#F54970'}}>
           Mint
           </Button>
-        </Link>
+  
         
       </Stack>
     </Box>
