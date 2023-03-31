@@ -1,10 +1,4 @@
-import {
-  Button,
-  Flex,
-  Heading,
-  Stack,
-  Text
-} from "@chakra-ui/react";
+import { Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Card from "@/components/common/Card/card";
 
 export default function Main() {
@@ -37,29 +31,27 @@ export default function Main() {
             <Stack direction={{ base: "column", md: "row" }} spacing={4}>
 
               {/* Buttons */}
-              
-                <Button
-                  as={'a'}
-                  href={"/create"}
-                  rounded={"full"}
-                  bg={"navbar.marketplace"}
-                  color={"white"}
-                  width={"fit"}
-                  _hover={{
-                    bg: "blue.500"}}>
-                  Create Now
-                </Button>
+              <Button
+                as={'a'}
+                href={"/create"}
+                rounded={"full"}
+                bg={"navbar.marketplace"}
+                color={"white"}
+                width={"fit"}
+                _hover={{bg: "button.hoverFirst"}}>
+                Create Now
+              </Button>
 
               <Button
-                  as={'a'}
-                  rounded={"full"}
-                  href={"/explore"}
-                  bg={"#C26D80"}
-                  width={"fit"}
-                  color={"white"}
-                  _hover={{ bg: "#F54970" }}>
-                  Explore NFTs
-                </Button>
+                as={'a'}
+                rounded={"full"}
+                href={"/explore"}
+                bg={"button.second"}
+                width={"fit"}
+                color={"white"}
+                _hover={{ bg: "button.hoverSecond"}}>
+                Explore NFTs
+              </Button>
 
             </Stack>
           </Stack>
@@ -70,6 +62,7 @@ export default function Main() {
           {/* Card Example */}
           <Card />
         </Flex>
+
       </Stack>
     </>
   );

@@ -1,30 +1,34 @@
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { ReactNode } from 'react';
-import {chakra, VisuallyHidden} from '@chakra-ui/react';
+import { chakra, VisuallyHidden } from '@chakra-ui/react';
+import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
-/* Social Media Buttons */
-const SocialButton = ({children, label, href}: {
+/* Social Media Button Props */
+interface SocialProps {
   children: ReactNode;
   label: string;
   href: string;
-}) => {
+  _hover: object;
+}
+
+/* Social Media Buttons */
+export function SocialButton(props: SocialProps) {
+
+  const { children, label, href, _hover } = props;
+
   return (
-    /* Button */
+
     <chakra.button
-      bg={'whiteAlpha.100'}
-      rounded={'full'}
-      w={8}
-      h={8}
-      cursor={'pointer'}
       as={'a'}
       href={href}
       display={'inline-flex'}
       alignItems={'center'}
       justifyContent={'center'}
+      bg={'whiteAlpha.100'}
+      rounded={'full'}
+      w={8}
+      h={8}
       transition={'background 0.3s ease'}
-      _hover={{
-        bg: 'gray.500'
-      }}>
+      _hover={_hover}>
       <VisuallyHidden>{label}</VisuallyHidden>
       {children}
     </chakra.button>
@@ -32,18 +36,37 @@ const SocialButton = ({children, label, href}: {
 };
 
 export default function Icons() {
+  
   return (
     <>
+      
       {/* Twitter */}
-      <SocialButton label={'Twitter'} href={''}>
-        <FaTwitter />
+      <SocialButton
+        label={'Twitter'}
+        href={'/'}
+        _hover={{
+          bg: 'background.logo',
+          color: 'logo.twitter'}}>
+        <FaTwitter  />
       </SocialButton>
+
       {/* YouTube */}
-      <SocialButton label={'YouTube'} href={''}>
+      <SocialButton
+        label={'YouTube'} 
+        href={'/'} 
+        _hover={{
+          bg: 'background.logo',
+          color: 'logo.youtube'}}>
         <FaYoutube />
       </SocialButton>
+
       {/* Instagram */}
-      <SocialButton label={'Instagram'} href={''}>
+      <SocialButton 
+        label={'Instagram'} 
+        href={'/'} 
+        _hover={{
+          bg: 'background.logo',
+          color: 'logo.instagram'}}>
         <FaInstagram />
       </SocialButton>
     </>

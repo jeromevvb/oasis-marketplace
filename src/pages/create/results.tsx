@@ -1,10 +1,10 @@
-import {Box, Heading, Button, Stack , Link, Image} from '@chakra-ui/react';
-import { CheckCircleIcon} from '@chakra-ui/icons';
+import {Box, Heading, Button, Stack, Image} from '@chakra-ui/react';
 
+// 👇 Example of Data set from API 
 const resultsData = {
-  name: 'Giant Orange R2-D2',
+  name: 'Tripping Duck',
   imageURL:
-    'https://cdn.vox-cdn.com/thumbor/ZhcG52NMDih4r3konjA8PMCtQ6w=/0x0:1536x1024/1820x1213/filters:focal(380x186:624x430):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/71723386/WesAndersonStarWars.0.jpeg',
+    'https://images-platform.99static.com/pULAgn-AED8QzzPGS40V0GCDOEk=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/130/130378/attachment_130378088',
 };
 
 export default function Results() {
@@ -13,9 +13,6 @@ export default function Results() {
 
     // 👇 Container for whole page 
     <Box textAlign="center" py={10} px={6} bg={'background.color'} color={'white'}>
-      
-      {/* Circle with Tick Icon */}
-      <CheckCircleIcon boxSize={'50px'} color={'blue.500'} />
 
       {/* Result title */}
       <Heading as="h2" size="xl" mt={6} mb={2}>
@@ -52,9 +49,9 @@ export default function Results() {
             href={'/create'}
             size={'lg'}
             rounded={'lg'}
-            bg={'navbar.marketplace'}
+            bg={'button.first'}
             width={'fit'}
-            _hover={{bg: 'blue.500'}}>
+            _hover={{bg: 'button.hoverFirst'}}>
             Try Again
           </Button>
         
@@ -65,9 +62,9 @@ export default function Results() {
             href={'/create/mint'}
             size={'lg'}
             rounded={'lg'}
-            bg={'#C26D80'}
+            bg={'button.second'}
             width={'fit'}
-            _hover={{bg: '#F54970'}}>
+            _hover={{bg: 'button.hoverSecond'}}>
           Mint
           </Button>
   

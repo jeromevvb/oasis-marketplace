@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, Link, Stack } from '@chakra-ui/react';
+import { Button, Flex, Heading, Stack } from '@chakra-ui/react';
 import Form from './form';
 import {useState} from 'react';
 
@@ -7,6 +7,7 @@ export default function Create() {
   // 👇 Loading State and function for button
   const [isLoading, setIsLoading] = useState(false)
   
+    // 👇 HandleClick function
   const handleClick = () => {
     setIsLoading(status => !status)
   }
@@ -46,21 +47,17 @@ export default function Create() {
 
           {/* Stacking of Buttons */}
           <Stack spacing={6}>
-            <Link
+            <Button
+              as={'a'}
               href={'/create/results'}
-              _hover={{
-              textDecoration: 'none'}}>
-              <Button
-                bg={'navbar.marketplace'}
-                color={'navbar.oasis'}
-                isLoading={isLoading}
-                loadingText={'Creating'}
-                onClick={handleClick}
-                _hover={{
-                  bg: 'blue.500'}}>
-                Create
-              </Button>
-            </Link>
+              bg={'button.first'}
+              color={'navbar.oasis'}
+              isLoading={isLoading}
+              loadingText={'Creating'}
+              onClick={handleClick}
+              _hover={{bg: 'button.hoverFirst'}}>
+              Create
+            </Button>
           </Stack>
           
         </Stack>

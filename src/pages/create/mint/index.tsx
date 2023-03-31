@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Flex,
   Box,
@@ -12,10 +13,8 @@ import {
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
-  NumberDecrementStepper,
-  Link
+  NumberDecrementStepper
 } from '@chakra-ui/react';
-import { useState } from 'react';
 
 export default function Mint() {
 
@@ -55,16 +54,16 @@ export default function Mint() {
             p={8}>
             
             {/* Stacking for Form */}
-            <Stack spacing={4} >
+            <Stack spacing={4}>
 
-              {/* Form */}
+              {/* === Form === */}
 
               {/* Name */}
               <FormControl id="Name">
                 <FormLabel>Name</FormLabel>
                 <Input
                   type="text"
-                  placeholder='Ex: "Chilled Gorilla"'
+                  placeholder='Ex: "Tripping Duck"'
                   _placeholder={{ color: 'gray.400' }}
                   _hover={{ borderColor: 'cyan.600' }} />
               </FormControl>
@@ -79,43 +78,40 @@ export default function Mint() {
                   <NumberDecrementStepper color={'white'}/>
                 </NumberInputStepper>
                 </NumberInput>
-                </FormControl>
+              </FormControl>
               
               {/* Price */}
               <FormControl id="Price">
                 <FormLabel>Price</FormLabel>
                 {/* Container for input and currency */}
                 <Flex justify={'center'} align={'center'}>
-                  {/* Input */}
                   <Input type='number' _hover={{ borderColor: 'cyan.600' }} />
-                  {/* Currency */}
                   <Text ml={'5'}>ETH</Text>
                 </Flex>
               </FormControl>
 
               {/* Stacking of Buttons */}
-            <Stack spacing={10} pt={2}>
+              <Stack spacing={10} pt={2}>
               
-                
                 {/* Container for Buttons */}
                 <Flex align={'center'} justify={'center'}>
-                    <Button
-                      as={'a'}
-                      href={'/create/mint/results'}
+                  <Button
+                    as={'a'}
+                    href={'/create/mint/results'}
                     loadingText="Minting"
                     size="lg"
-                    bg={'navbar.marketplace'}
+                    bg={'button.first'}
                     color={'white'}
                     isLoading={isLoading}
-                      onClick={handleClick}
-                      w={'fit'}
-                    _hover={{bg: 'blue.500'}}>
-                      Mint
+                    onClick={handleClick}
+                    w={'fit'}
+                    _hover={{bg: 'button.hoverFirst'}}>
+                    Mint
                     </Button>
                   </Flex>
-            </Stack>
+              </Stack>
               
-          </Stack>
+            </Stack>
           </Box>
         </Stack>
       </Flex>

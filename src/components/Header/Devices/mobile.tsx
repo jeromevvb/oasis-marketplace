@@ -4,22 +4,21 @@ import {
   Stack,
   Link,
   Text,
-  useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
 
 /* 1. Header Props */
 
-interface NavItem {
+interface Header {
   name: string;
   subLabel?: string;
-  children?: Array<NavItem>
+  children?: Array<Header>
   href?: string;
 }
 
 /* 2. Object with Header options */
 
-const Links: Array<NavItem> = [
+const Links: Array<Header> = [
 
   {
     name: "Create",
@@ -36,66 +35,73 @@ const Links: Array<NavItem> = [
     href: "../connect_wallet"
   }];
 
-export default function MobileNav() {
-  return (
-    <Stack
-      bg={'navbar.background'}
-      p={4}
-      display={{ md: 'none' }}>
-      {Links.map((link) => (
-        <NavLink key={link.name} {...link} />
-      ))}
-    </Stack>
-  );
-};
+/* 3. Rendering of Header Options */
+export function NavLink(props: Header) {
 
-const NavLink = ({ name, href }: NavItem) => {
-  const { isOpen, onToggle } = useDisclosure();
+    const {name, href} = props
+    const { isOpen, onToggle } = useDisclosure();
+
   return (
-    <Stack spacing={4} onClick={onToggle}>
-      <Flex
+    <>
+      {/* Stacking */}
+      <Stack spacing={4} onClick={onToggle}>
+        {/* Container */}
+        <Flex
         py={2}
         as={Link}
         href={href}
         justify={'space-between'}
         align={'center'}
         _hover={{
-          textDecoration: 'none',
-        }}>
-        <Text
-          fontWeight={'bold'}
-          fontSize={"lg"}
-          px={2}
-          py={1}
-          color={'white'}
-          rounded={"md"}
-          _hover={{
-      textDecoration: "none",
-      color: "brown",
-    }}>
-          {name}
-        </Text>
-        
-      </Flex>
-
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+          textDecoration: 'none'}}>
+          {/* Options */}
+          <Text
+            fontWeight={'bold'}
+            fontSize={"lg"}
+            px={2}
+            py={1}
+            color={'white'}
+            rounded={"md"}
+            _hover={{
+              textDecoration: "none",
+              color: "brown"}}>
+            {name}
+          </Text>
+        </Flex>
+        {/* Collapse */}
+        <Collapse
+          in={isOpen}
+          animateOpacity
+          style={{ marginTop: '0!important' }}>
+        {/* Stack inside Menu */}  
         <Stack
-        
           mt={2}
-          pl={4}
-          borderLeft={1}
-          borderStyle={'solid'}
-          borderColor={useColorModeValue('gray.200', 'gray.700')}
-          align={'start'}>
-          {
-            Links.map((child) => (
-              <Link key={child.name} py={2} href={child.href}>
-                {child.name}
-              </Link>
-            ))}
-        </Stack>
-      </Collapse>
-    </Stack>
+          pl={4}>  
+          {/* Rendering */}   
+          {Links.map((child) => (
+            <Link key={child.name} py={2} href={child.href}>
+              {child.name}
+            </Link>))}
+        </Stack>   
+        </Collapse>
+      </Stack>
+    </>
   );
 };
 
+/* 4. Rending of Options on Mobile Devices */
+export default function MobileNav() {
+  return (
+    <>
+      {/* Stack */} 
+      <Stack
+        bg={'navbar.background'}
+        p={4}
+        display={{ md: 'none' }}>
+        {/* Render */} 
+        {Links.map((link) => (
+          <NavLink key={link.name} {...link} />))}
+      </Stack>
+    </>
+  );
+};

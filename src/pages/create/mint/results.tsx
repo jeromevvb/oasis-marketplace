@@ -6,19 +6,25 @@ const resultsData = {
   name: 'Tripping Duck'
 };
 
-export default function MintedNFT() {
+export default function Minted() {
 
   return (
 
     // 👇 Container for whole page 
-    <Box textAlign="center" py={10} px={6} bg={'background.color'} color={'white'}>
+    <Box
+      textAlign="center"
+      py={10}
+      px={6}
+      bg={'background.color'}
+      color={'white'}>
       
       {/* Circle with Tick Icon */}
       <CheckCircleIcon boxSize={'50px'} color={'blue.500'} />
 
       {/* Result title */}
-      <Heading as="h2" size="xl" mt={6} mb={2}>
-          You have successfully Minted "{resultsData.name}"
+      <Heading 
+        as="h2" size="xl" mt={6} mb={2}>
+        You have successfully Minted "{resultsData.name}"
       </Heading>
       
       {/* Stacking of Card */}
@@ -26,8 +32,7 @@ export default function MintedNFT() {
         spacing={4}
         mt={'5'}
         align={'center'}
-        justify={'center'}>
-        
+        justify={'center'}>  
         {/* Card Example */}
         <Card />
       </Stack>
@@ -40,29 +45,27 @@ export default function MintedNFT() {
         align={'center'}
         justify={'center'}>
         
-        {/* Home */}
-
+        {/* Return to Home Page Button */}
         <Button
-            href={'/main'}
-            as={'a'}
-            size={'lg'}
-            rounded={'lg'}
-            bg={'#C26D80'}
-            w={'fit'}
-            _hover={{bg: '#F54970'}}>
-          Home
+          href={'../../main'}
+          as={'a'}
+          size={'lg'}
+          rounded={'lg'}
+          bg={'button.first'}
+          w={'fit'}
+          _hover={{bg: 'button.hoverFirst'}}>
+          Return to Main Page
           </Button>
         
-        {/* Create Button */}
-        
+        {/* Create New NFT Button */} 
         <Button
             as={'a'}
             href={'/create'}
             size={'lg'}
             rounded={'lg'}
-            bg={'navbar.marketplace'}
+            bg={'button.second'}
             w={'fit'}
-            _hover={{bg: 'blue.500'}}>
+            _hover={{bg: 'button.hoverSecond'}}>
             Create New NFT
           </Button>
         

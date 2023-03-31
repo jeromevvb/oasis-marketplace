@@ -58,7 +58,7 @@ export default function Card() {
             </Flex>
 
             {/* Container for Name */}
-            <Flex mt="1" justify="space-between" alignContent="center">
+            <Flex mt="1" justify="space-between" alignContent="center" color={'navbar.oasis'}>
               <Box
                 fontSize="2xl"
                 fontWeight="semibold"
@@ -70,14 +70,14 @@ export default function Card() {
             </Flex>
 
             {/* Container for Price and Currency */}
-            <Flex justify="space-between" align="center">
+            <Flex justify="space-between" align="center" color={'navbar.oasis'}>
               {/* Container for Price */}
-              <Box fontSize="2xl" color={'navbar.oasis'}>
+              <Box fontSize="2xl">
               {cardData.price}
               </Box>
 
               {/* Container for currency */}
-              <Box as="span" color={'navbar.oasis'} fontSize="lg" >
+              <Box as="span" fontSize="lg" >
                 ETH
               </Box>
             </Flex>
