@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {HStack, Link} from "@chakra-ui/react";
+import { HStack, Link } from "@chakra-ui/react";
 
 export default function Logo() {
   return (

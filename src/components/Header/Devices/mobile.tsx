@@ -1,11 +1,12 @@
-import { Collapse, Flex, Link, Stack, Text, useDisclosure } from "@chakra-ui/react";
+import { Collapse, Flex, Icon, Link, Stack, Text, useDisclosure } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
 /* 1. Header Props */
 
 interface Header {
   name: string;
   subLabel?: string;
-  children?: Array<Header>
+  children?: Array<Header>;
   href?: string;
 }
 
@@ -25,19 +26,37 @@ const Links: Array<Header> = [
 
   {
     name: "Connect Wallet",
-    href: "../connect_wallet"
+    children: [
+      {
+        name: 'WalletConnect',
+        href: 'https://walletconnect.com/',
+      },
+      {
+        name: 'MetaMask',
+        href: 'https://metamask.io/',
+      },
+      {
+        name: 'Coinbase Wallet',
+        href: 'https://www.coinbase.com/wallet',
+      },
+      {
+        name: 'Fortmatic',
+        href: 'https://fortmatic.com/',
+      },
+    ],
   }];
 
 /* 3. Rendering of Header Options */
 export function NavLink(props: Header) {
 
-    const {name, href} = props
-    const { isOpen, onToggle } = useDisclosure();
+  const { name, children, href, subLabel } = props;
+  
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <>
       {/* Stacking */}
-      <Stack spacing={4} onClick={onToggle}>
+      <Stack spacing={4} onClick={children && onToggle}>
         {/* Container */}
         <Flex
         py={2}
@@ -60,19 +79,39 @@ export function NavLink(props: Header) {
               color: "brown"}}>
             {name}
           </Text>
+          {/* Rendering */}
+          {children && (
+          <Icon
+            as={ChevronDownIcon}
+            color={'white'}
+            transition={'all .25s ease-in-out'}
+            transform={isOpen ? 'rotate(180deg)' : ''}
+            w={6}
+            h={6}
+            _hover={{color: 'brown'}} />)}
         </Flex>
         {/* Collapse */}
         <Collapse
           in={isOpen}
-          animateOpacity
-          style={{ marginTop: '0!important' }}>
+          style={{ marginTop: '0!important'}}
+          animateOpacity>
         {/* Stack inside Menu */}  
         <Stack
           mt={2}
-          pl={4}>  
+          pl={4}
+          color={'white'}
+          fontWeight={500}>  
           {/* Rendering */}   
-          {Links.map((child) => (
-            <Link key={child.name} py={2} href={child.href}>
+          {children && children.map((child) => (
+            <Link
+              key={child.name} 
+              rounded={'md'}
+              p={2}
+              href={child.href}
+              _hover={{
+                bg: 'navbar.marketplace',
+                color: 'brown',
+              textDecoration: "none"}}>
               {child.name}
             </Link>))}
         </Stack>   
@@ -93,7 +132,7 @@ export default function MobileNav() {
         display={{ md: 'none' }}>
         {/* Render */} 
         {Links.map((link) => (
-          <NavLink {...link} />))}
+          <NavLink key={link.name} {...link} />))}
       </Stack>
     </>
   );

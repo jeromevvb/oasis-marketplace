@@ -4,7 +4,7 @@ import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 /* Social Media Button Props */
 interface SocialProps {
-  children: ReactNode;
+  children?: ReactNode;
   label: string;
   href: string;
   _hover: object;
@@ -16,7 +16,6 @@ export function SocialButton(props: SocialProps) {
   const { children, label, href, _hover } = props;
 
   return (
-
     <chakra.button
       as={'a'}
       href={href}
@@ -38,8 +37,7 @@ export function SocialButton(props: SocialProps) {
 export default function Icons() {
   
   return (
-    <>
-      
+    <>      
       {/* Twitter */}
       <SocialButton
         label={'Twitter'}
@@ -49,7 +47,6 @@ export default function Icons() {
           color: 'logo.twitter'}}>
         <FaTwitter  />
       </SocialButton>
-
       {/* YouTube */}
       <SocialButton
         label={'YouTube'} 
@@ -59,7 +56,6 @@ export default function Icons() {
           color: 'logo.youtube'}}>
         <FaYoutube />
       </SocialButton>
-
       {/* Instagram */}
       <SocialButton 
         label={'Instagram'} 
