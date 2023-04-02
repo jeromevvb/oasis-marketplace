@@ -26,38 +26,31 @@ export default function Mint() {
 
   return (
     <>
-      
       {/* 👇 Container for whole page */}
       <Flex
         minH={'100vh'}
         align={'center'}
         justify={'center'}
         bg={'background.color'}
-        color={'white'}>
-        
+        color={'white'}>       
         {/* General Stacking for whole content */}
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-
           {/* Stacking for Heading */}
           <Stack align={'center'}>
             {/* Heading */}
             <Heading fontSize={'4xl'} textAlign={'center'}>
             Mint Your NFT
             </Heading>
-          </Stack>
-          
+          </Stack>          
           {/* Container for Form */}
           <Box
             rounded={'lg'}
             bg={'gray.700'}
             boxShadow={'lg'}
-            p={8}>
-            
+            p={8}>            
             {/* Stacking for Form */}
             <Stack spacing={4}>
-
               {/* === Form === */}
-
               {/* Name */}
               <FormControl id="Name">
                 <FormLabel>Name</FormLabel>
@@ -66,8 +59,7 @@ export default function Mint() {
                   placeholder='Ex: "Tripping Duck"'
                   _placeholder={{ color: 'gray.400' }}
                   _hover={{ borderColor: 'cyan.600' }} />
-              </FormControl>
-              
+              </FormControl>             
               {/* Copies */}
               <FormControl id="Copies" isRequired>
                 <FormLabel>Copies</FormLabel>
@@ -78,8 +70,7 @@ export default function Mint() {
                   <NumberDecrementStepper color={'white'}/>
                 </NumberInputStepper>
                 </NumberInput>
-              </FormControl>
-              
+              </FormControl>              
               {/* Price */}
               <FormControl id="Price">
                 <FormLabel>Price</FormLabel>
@@ -89,15 +80,13 @@ export default function Mint() {
                   <Text ml={'5'}>ETH</Text>
                 </Flex>
               </FormControl>
-
               {/* Stacking of Buttons */}
-              <Stack spacing={10} pt={2}>
-              
+              <Stack spacing={10} pt={2}>             
                 {/* Container for Buttons */}
                 <Flex align={'center'} justify={'center'}>
                   <Button
                     as={'a'}
-                    href={'/create/mint/results'}
+                    href={'/create/minted'}
                     loadingText="Minting"
                     size="lg"
                     bg={'button.first'}
@@ -109,8 +98,7 @@ export default function Mint() {
                     Mint
                     </Button>
                   </Flex>
-              </Stack>
-              
+              </Stack>              
             </Stack>
           </Box>
         </Stack>

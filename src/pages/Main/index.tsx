@@ -9,27 +9,21 @@ export default function Main() {
       <Stack
         minH={"100vh"}
         direction={{ base: "column", md: "row" }}
-        bg={"background.color"}>
-        
+        bg={"background.color"}>        
         {/* Container for text and buttons */}
         <Flex p={8} flex={1} align={"center"} justify={"center"} >
-
           {/* Stacking */}
           <Stack spacing={6} w={"full"} maxW={"lg"} >
-
             {/* Main Heading */}
             <Heading fontSize={{ base: "3xl", md: "5xl", lg: "6xl" }} color={'white'}>
               <Text>Create Customized NFTs Now Using AI.</Text>
             </Heading>
-
             {/* Text */}
             <Text fontSize={{ base: "lg", lg: "2xl" }} color={"navbar.marketplace"}>
               Digital marketplace for non-fungible tokens (NFTs)
             </Text>
-
             {/* Stacking of Buttons */}
             <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-
               {/* Buttons */}
               <Button
                 as={'a'}
@@ -41,7 +35,6 @@ export default function Main() {
                 _hover={{bg: "button.hoverFirst"}}>
                 Create Now
               </Button>
-
               <Button
                 as={'a'}
                 rounded={"full"}
@@ -52,17 +45,14 @@ export default function Main() {
                 _hover={{ bg: "button.hoverSecond"}}>
                 Explore NFTs
               </Button>
-
             </Stack>
           </Stack>
         </Flex>
-
         {/* Container for Card */}              
         <Flex flex={1}>
           {/* Card Example */}
           <Card />
         </Flex>
-
       </Stack>
     </>
   );

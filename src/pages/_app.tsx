@@ -1,4 +1,3 @@
-
 import type { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import Header from '@/components/Header';
@@ -9,6 +8,8 @@ import Footer from '@/components/Footer';
 import '@fontsource/dosis';
 import '@fontsource/dosis/700.css';
 import '@fontsource/dosis/500.css';
+
+// 👇 Themes 
 
 const theme = extendTheme({
   colors: {

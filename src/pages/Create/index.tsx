@@ -20,8 +20,7 @@ export default function Create() {
         align={'center'}
         justify={'center'}
         bg={'background.color'}
-        color={'white'}>
-        
+        color={'white'}>       
         {/* Stacking of content */}
         <Stack
           spacing={7}
@@ -32,8 +31,7 @@ export default function Create() {
           rounded={'xl'}
           boxShadow={'lg'}
           align={'center'}
-          p={9}>
-          
+          p={9}>         
           {/* Heading */}
           <Heading
             lineHeight={1.1}
@@ -41,10 +39,8 @@ export default function Create() {
             textAlign={'center'}>
             Create Your NFT 
           </Heading>
-
           {/* Form */}
           <Form />
-
           {/* Stacking of Buttons */}
           <Stack spacing={6}>
             <Button
@@ -58,8 +54,7 @@ export default function Create() {
               _hover={{bg: 'button.hoverFirst'}}>
               Create
             </Button>
-          </Stack>
-          
+          </Stack>          
         </Stack>
       </Flex>
     </>

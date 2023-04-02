@@ -5,20 +5,15 @@ export default function Explore() {
   return (
     <>
       {/*👇 Container for whole page */}
-      <Flex bg={'background.color'} h={{ md: '100vh' }} >
-
+      <Flex bg={'background.color'} h={{ md: '100vh' }}>
         {/* Stacking */}
-        <Stack direction={{ base: 'column', md: 'row' }}>
-          
+        <Stack direction={{ base: 'column', md: 'row' }}>          
           {/* Card 1 */}
-          <Card />
-          
+          <Card />          
           {/* Card 2 */}
-          <Card />
-          
+          <Card />          
           {/* Card 3 */}
           <Card />
-
         </Stack>
       </Flex>
     </>

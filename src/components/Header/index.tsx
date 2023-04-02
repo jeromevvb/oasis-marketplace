@@ -38,8 +38,7 @@ export default function Header() {
           <Flex justify={{ base: 'center', md: 'end' }} display={{ base: 'none', md: 'flex' }}>
             <DesktopNav />
           </Flex>
-        </Flex>
-        
+        </Flex>       
         {/* Display of Options on Mobile Devices */}
         <Collapse in={isOpen} animateOpacity>
           <MobileNav />

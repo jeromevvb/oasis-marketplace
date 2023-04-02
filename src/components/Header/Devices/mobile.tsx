@@ -1,11 +1,4 @@
-import {
-  Collapse,
-  Flex,
-  Stack,
-  Link,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Collapse, Flex, Link, Stack, Text, useDisclosure } from "@chakra-ui/react";
 
 /* 1. Header Props */
 
@@ -100,7 +93,7 @@ export default function MobileNav() {
         display={{ md: 'none' }}>
         {/* Render */} 
         {Links.map((link) => (
-          <NavLink key={link.name} {...link} />))}
+          <NavLink {...link} />))}
       </Stack>
     </>
   );
