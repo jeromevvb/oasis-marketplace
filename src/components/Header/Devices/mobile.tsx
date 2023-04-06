@@ -1,53 +1,9 @@
 import { Collapse, Flex, Icon, Link, Stack, Text, useDisclosure } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-
-/* 1. Header Props */
-
-interface Header {
-  name: string;
-  subLabel?: string;
-  children?: Array<Header>;
-  href?: string;
-}
-
-/* 2. Object with Header options */
-
-const Links: Array<Header> = [
-
-  {
-    name: "Create",
-    href: "../create"
-  },
-
-  {
-    name: "Explore",
-    href: "../explore"
-  },
-
-  {
-    name: "Connect Wallet",
-    children: [
-      {
-        name: 'WalletConnect',
-        href: 'https://walletconnect.com/',
-      },
-      {
-        name: 'MetaMask',
-        href: 'https://metamask.io/',
-      },
-      {
-        name: 'Coinbase Wallet',
-        href: 'https://www.coinbase.com/wallet',
-      },
-      {
-        name: 'Fortmatic',
-        href: 'https://fortmatic.com/',
-      },
-    ],
-  }];
+import { HeaderProps, Links } from "../";
 
 /* 3. Rendering of Header Options */
-export function NavLink(props: Header) {
+function NavLink(props: HeaderProps) {
 
   const { name, children, href, subLabel } = props;
   
@@ -132,7 +88,7 @@ export default function MobileNav() {
         display={{ md: 'none' }}>
         {/* Render */} 
         {Links.map((link) => (
-          <NavLink key={link.name} {...link} />))}
+          <NavLink {...link} />))}
       </Stack>
     </>
   );

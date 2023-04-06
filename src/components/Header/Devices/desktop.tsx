@@ -1,7 +1,6 @@
 import {
   Box,
   Flex,
-  Icon,
   Link,
   Stack,
   Text,
@@ -10,59 +9,15 @@ import {
   PopoverTrigger,
   useDisclosure
 } from "@chakra-ui/react";
-
-/* 1. Header Props */
-
-interface Header {
-  name: string;
-  subLabel?: string;
-  children?: Array<Header>;
-  href?: string;
-}
-
-/* 2. Object with Header options */
-
-const Links: Array<Header> = [
-
-  {
-    name: "Create",
-    href: "../create"
-  },
-
-  {
-    name: "Explore",
-    href: "../explore"
-  },
-
-  {
-    name: "Connect Wallet",
-    children: [
-      {
-        name: 'WalletConnect',
-        href: 'https://walletconnect.com/',
-      },
-      {
-        name: 'MetaMask',
-        href: 'https://metamask.io/',
-      },
-      {
-        name: 'Coinbase Wallet',
-        href: 'https://www.coinbase.com/wallet',
-      },
-      {
-        name: 'Fortmatic',
-        href: 'https://fortmatic.com/',
-      },
-    ],
-  }];
+import { HeaderProps, Links } from "../";
 
   /* Connect Wallet Options */
-export function DesktopSubNav(props: Header) {
+export function DesktopSubNav(props: HeaderProps) {
 
-  const { name, href, subLabel } = props;
+  const { name, href } = props;
 
   return (
-      
+    <>
       <Link
         href={href}
         role={'group'}
@@ -90,6 +45,7 @@ export function DesktopSubNav(props: Header) {
           </Flex>
         </Stack>
       </Link>
+    </>
     );
   };
 
@@ -129,7 +85,7 @@ export default function DesktopNav() {
                   minW={'sm'}>
                 <Stack>
                   {link.children.map((child) => (
-                    <DesktopSubNav key={child.name} {...child} />
+                    <DesktopSubNav {...child} />
                   ))}
                 </Stack>
               </PopoverContent>)}

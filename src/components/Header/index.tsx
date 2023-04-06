@@ -4,6 +4,51 @@ import MobileNav from "./Devices/mobile";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Box, Collapse, Flex, IconButton, useDisclosure } from "@chakra-ui/react";
 
+/* 1. Header Props */
+
+export interface HeaderProps {
+  name: string;
+  subLabel?: string;
+  children?: Array<HeaderProps>;
+  href?: string;
+}
+
+/* 2. Object with Header options */
+
+export const Links: Array<HeaderProps> = [
+
+  {
+    name: "Create",
+    href: "../Create"
+  },
+
+  {
+    name: "Explore",
+    href: "../Explore"
+  },
+
+  {
+    name: "Connect Wallet",
+    children: [
+      {
+        name: 'WalletConnect',
+        href: 'https://walletconnect.com/',
+      },
+      {
+        name: 'MetaMask',
+        href: 'https://metamask.io/',
+      },
+      {
+        name: 'Coinbase Wallet',
+        href: 'https://www.coinbase.com/wallet',
+      },
+      {
+        name: 'Fortmatic',
+        href: 'https://fortmatic.com/',
+      },
+    ],
+  }];
+
 export default function Header() {
 
   const { isOpen, onOpen, onClose} = useDisclosure();
