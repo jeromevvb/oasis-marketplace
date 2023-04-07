@@ -19,12 +19,12 @@ export const Links: Array<HeaderProps> = [
 
   {
     name: "Create",
-    href: "../Create"
+    href: "../create"
   },
 
   {
     name: "Explore",
-    href: "../Explore"
+    href: "../explore"
   },
 
   {

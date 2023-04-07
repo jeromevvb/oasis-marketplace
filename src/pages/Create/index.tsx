@@ -1,20 +1,20 @@
 import { Button, Flex, Heading, Stack } from '@chakra-ui/react';
 import Form from './form';
-import {useState} from 'react';
+import { useState } from 'react';
 
 export default function Create() {
 
-  // 👇 Loading State and function for button
+    /* Loading State for button */
   const [isLoading, setIsLoading] = useState(false)
   
-    // 👇 HandleClick function
+    /* HandleClick function */
   const handleClick = () => {
     setIsLoading(status => !status)
   }
 
   return (
     <>
-      {/* 👇 Container for whole page */}
+      {/* Container for whole page */}
       <Flex
         minH={'100vh'}
         align={'center'}
