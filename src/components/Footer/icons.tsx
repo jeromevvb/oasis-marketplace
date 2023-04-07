@@ -41,7 +41,7 @@ export default function Icons() {
       {/* Twitter */}
       <SocialButton
         label={'Twitter'}
-        href={'/'}
+        href={'https://www.twitter.com/'}
         _hover={{
           bg: 'background.logo',
           color: 'logo.twitter'}}>
@@ -50,7 +50,7 @@ export default function Icons() {
       {/* YouTube */}
       <SocialButton
         label={'YouTube'} 
-        href={'/'} 
+        href={'https://www.youtube.com/'} 
         _hover={{
           bg: 'background.logo',
           color: 'logo.youtube'}}>
@@ -59,7 +59,7 @@ export default function Icons() {
       {/* Instagram */}
       <SocialButton 
         label={'Instagram'} 
-        href={'/'} 
+        href={'https://www.instagram.com/'} 
         _hover={{
           bg: 'background.logo',
           color: 'logo.instagram'}}>

@@ -6,10 +6,10 @@ export default function Logo() {
       {/* Stacking */}
       <HStack spacing={8} align={'center'}>
         {/* Logo */}
-        <Link href={'../main'} _hover={{ opacity: '50%' }}>
+        <Link href={'/main'} _hover={{ opacity: '50%' }}>
           <Image
           id={'logo'}
-          src={'../logo2.png'}
+          src={'/logo2.png'}
           alt={'logo'}
           width={'12rem'}
           height={'100%'}/>

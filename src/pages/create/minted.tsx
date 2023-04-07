@@ -43,7 +43,7 @@ export default function Minted() {
         justify={'center'}>        
         {/* Return to Home Page Button */}
         <Button
-          href={'../../main'}
+          href={'/main'}
           as={'a'}
           size={'lg'}
           rounded={'lg'}
