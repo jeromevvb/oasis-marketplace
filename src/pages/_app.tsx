@@ -25,17 +25,18 @@ const theme = extendTheme({
     },
 
     button: {
-      first: "#415a63",
-      hoverFirst: "#3182CE",
-      second: "#C26D80",
-      hoverSecond: "#F54970"
+      primary: "#EA638C",
+      primaryHover: "#F2BB05",
+      secondary: "#415A63",
+      secondaryHover: "#3182CE"
     },
 
-    logo: {
+    icon: {
       twitter: "#1DA1F2",
       youtube: "#FF0000",
       instagram: "#C13584"
-    }
+    },
+
   },
   
   fonts: {

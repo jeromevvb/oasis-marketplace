@@ -1,4 +1,5 @@
-import { HStack, Link, Image } from "@chakra-ui/react";
+import Link from 'next/link';
+import { HStack, Image } from "@chakra-ui/react";
 
 export default function Logo() {
   return (
@@ -6,13 +7,14 @@ export default function Logo() {
       {/* Stacking */}
       <HStack spacing={8} align={'center'}>
         {/* Logo */}
-        <Link href={'/main'} _hover={{ opacity: '50%' }}>
+        <Link href={'/'}>
           <Image
           id={'logo'}
           src={'/logo2.png'}
           alt={'logo'}
           width={'12rem'}
-          height={'100%'}/>
+          height={'100%'}
+          _hover={{ opacity: '50%' }}/>
         </Link>
       </HStack>
     </>

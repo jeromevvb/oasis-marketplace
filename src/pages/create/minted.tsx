@@ -1,4 +1,5 @@
-import {Box, Heading, Button, Stack} from '@chakra-ui/react';
+import Link from "next/link";
+import { Box, Heading, Button, Stack } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 import Card from '@/components/common/Card/card';
 
@@ -40,29 +41,29 @@ export default function Minted() {
         spacing={5}
         mt={'8'}
         align={'center'}
-        justify={'center'}>        
+        justify={'center'}>
         {/* Return to Home Page Button */}
-        <Button
-          href={'/main'}
-          as={'a'}
+        <Link href={'/'}>
+        <Button          
           size={'lg'}
           rounded={'lg'}
-          bg={'button.first'}
+          bg={'button.primary'}
           w={'fit'}
-          _hover={{bg: 'button.hoverFirst'}}>
+          _hover={{bg: 'button.primaryHover'}}>
           Return to Main Page
-        </Button>        
+          </Button>
+          </Link>  
         {/* Create New NFT Button */} 
+        <Link href={'/create'}>
         <Button
-          as={'a'}
-          href={'/create'}
           size={'lg'}
           rounded={'lg'}
-          bg={'button.second'}
+          bg={'button.secondary'}
           w={'fit'}
-          _hover={{bg: 'button.hoverSecond'}}>
+          _hover={{bg: 'button.secondaryHover'}}>
           Create New NFT
-        </Button>       
+          </Button>
+          </Link>  
       </Stack>
     </Box>
   );

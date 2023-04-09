@@ -1,4 +1,5 @@
-import {Box, Heading, Button, Stack, Image} from '@chakra-ui/react';
+import Link from "next/link";
+import { Box, Heading, Button, Stack, Image } from '@chakra-ui/react';
 
 // 👇 Example of Data set from API 
 const resultsData = {
@@ -36,28 +37,28 @@ export default function Results() {
         mt={'8'}
         align={'center'}
         justify={'center'}>       
-          {/* Try Again Button */}    
+        {/* Try Again Button */}
+        <Link href={'/create'}>
           <Button
-            as={'a'}
-            href={'/create'}
             size={'lg'}
             rounded={'lg'}
-            bg={'button.first'}
+            bg={'button.primary'}
             width={'fit'}
-            _hover={{bg: 'button.hoverFirst'}}>
+            _hover={{bg: 'button.primaryHover'}}>
             Try Again
-          </Button>       
-          {/* Mint Button */}       
+          </Button>  
+          </Link>
+        {/* Mint Button */}  
+        <Link href={'/create/mint'}>
           <Button
-            as={'a'}
-            href={'/create/mint'}
             size={'lg'}
             rounded={'lg'}
-            bg={'button.second'}
+            bg={'button.secondary'}
             width={'fit'}
-            _hover={{bg: 'button.hoverSecond'}}>
+            _hover={{bg: 'button.secondaryHover'}}>
             Mint
           </Button>
+          </Link>
       </Stack>
     </Box>
   );

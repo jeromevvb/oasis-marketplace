@@ -2,14 +2,24 @@ import { Button, Flex, Heading, Stack } from '@chakra-ui/react';
 import Form from './form';
 import { useState } from 'react';
 
+// 👇 Example of Data set from API 
+const resultsData = {
+  name: 'Tripping Duck',
+  imageURL:
+    'https://images-platform.99static.com/pULAgn-AED8QzzPGS40V0GCDOEk=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/130/130378/attachment_130378088',
+};
+
 export default function Create() {
 
     /* Loading State for button */
   const [isLoading, setIsLoading] = useState(false)
+    /* State for results */
+  const [results, setResults] = useState()
   
     /* HandleClick function */
   const handleClick = () => {
-    setIsLoading(status => !status)
+    setIsLoading(status => !status);
+    setResults(result => result);
   }
 
   return (
@@ -19,8 +29,8 @@ export default function Create() {
         minH={'100vh'}
         align={'center'}
         justify={'center'}
-        bg={'background.color'}
-        color={'white'}>       
+          color={'white'}
+          bg={'background.color'}>       
         {/* Stacking of content */}
         <Stack
           spacing={7}
@@ -46,17 +56,17 @@ export default function Create() {
             <Button
               as={'a'}
               href={'/create/results'}
-              bg={'button.first'}
+              bg={'button.primary'}
               color={'navbar.oasis'}
               isLoading={isLoading}
               loadingText={'Creating'}
               onClick={handleClick}
-              _hover={{bg: 'button.hoverFirst'}}>
+              _hover={{bg: 'button.primaryHover'}}>
               Create
             </Button>
           </Stack>          
         </Stack>
-      </Flex>
+        </Flex>
     </>
   );
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from 'react';
 import {
   Flex,
@@ -84,19 +85,19 @@ export default function Mint() {
               <Stack spacing={10} pt={2}>             
                 {/* Container for Buttons */}
                 <Flex align={'center'} justify={'center'}>
+                  <Link href={'/create/minted'}>
                   <Button
-                    as={'a'}
-                    href={'/create/minted'}
                     loadingText="Minting"
                     size="lg"
-                    bg={'button.first'}
+                    bg={'button.primary'}
                     color={'white'}
                     isLoading={isLoading}
                     onClick={handleClick}
                     w={'fit'}
-                    _hover={{bg: 'button.hoverFirst'}}>
+                    _hover={{bg: 'button.primaryHover'}}>
                     Mint
                     </Button>
+                    </Link>
                   </Flex>
               </Stack>              
             </Stack>
