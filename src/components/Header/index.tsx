@@ -26,7 +26,11 @@ export const Links: Array<HeaderProps> = [
     name: "Explore",
     href: "/explore"
   },
+];
 
+/* 3. Connect Wallet */
+
+const Connect: Array<HeaderProps> = [
   {
     name: "Connect Wallet",
     children: [
@@ -47,7 +51,8 @@ export const Links: Array<HeaderProps> = [
         href: 'https://fortmatic.com/',
       },
     ],
-  }];
+  }
+]
 
 export default function Header() {
 
@@ -56,7 +61,7 @@ export default function Header() {
   return (
     <>
       {/*👇 Container for whole Header */}
-      <Box bg={'navbar.background'} px={4}>
+      <Box bg={'gray.800'} px={4}>
         {/* Container for Header content */}
         <Flex
           minH={16}

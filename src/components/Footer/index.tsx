@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <> 
       {/* Main Container for Whole Footer */}
-      <Box bg={'gray.900'} color={'white'}>
+      <Box bg={'#171923'} color={'white'}>
         {/* Container for Content */}
         <Container
           as={Stack}

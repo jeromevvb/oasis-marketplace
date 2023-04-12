@@ -1,10 +1,15 @@
 import { Container } from "@chakra-ui/react";
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
-export default function Layout() {
+export default function Layout({ children }) {
   return (
     <>
-      <Container maxW={'100vw'}>
+      <Header />
+      <Container maxW={'100vw'} bg={'gray.800'}>
+        {children}
       </Container>
+      <Footer />
     </>
   )
 }

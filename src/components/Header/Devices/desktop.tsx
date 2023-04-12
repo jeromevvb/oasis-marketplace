@@ -1,13 +1,12 @@
+import Link from 'next/link';
 import {
   Box,
   Flex,
-  Link,
   Stack,
   Text,
   Popover,
   PopoverContent,
   PopoverTrigger,
-  useDisclosure
 } from "@chakra-ui/react";
 import { HeaderProps, Links } from "../";
 
@@ -19,14 +18,13 @@ export function DesktopSubNav(props: HeaderProps) {
   return (
     <>
       <Link
-        href={href}
-        role={'group'}
-        display={'block'}
-        p={2}
-        rounded={'md'}
-        _hover={{ bg: 'navbar.marketplace' }}>
+        href={`${href}`}>
         <Stack direction={'row'} align={'center'}>
-          <Box>
+          <Box
+            role={'group'}
+            display={'block'}
+            p={2}
+            rounded={'md'}>
             <Text
               transition={'all .3s ease'}
               _groupHover={{ color: 'brown' }}
@@ -51,38 +49,35 @@ export function DesktopSubNav(props: HeaderProps) {
 
 export default function DesktopNav() {
 
-  const { isOpen } = useDisclosure();
-
   return (
     <>  
       {/* Stacking */}
       <Stack direction={'row'} spacing={4}>
         {/* Options */}
         {Links.map((link) => (
-        <Box key={link.name}>
-          <Popover trigger={'hover'} placement={'bottom-start'} >
+          <Box
+            key={link.name}
+            p={2} fontSize={'lg'}
+            fontWeight={'bold'}
+            color={'white'}
+            _hover={{
+            textDecoration: 'none',
+            color: 'brown'}}>
+          <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
-              <Link
-                p={2}
-                href={link.href}
-                fontSize={'lg'}
-                fontWeight={'bold'}
-                color={'white'}
-                _hover={{
-                  textDecoration: 'none',
-                  color: 'brown'}}>
-                  {link.name}
-                </Link>
-              </PopoverTrigger>
-              {link.children && (
-                <PopoverContent
+              <Link href={`${link.href}`}>
+                <Text>{link.name}</Text>
+              </Link>
+            </PopoverTrigger>
+            {link.children && (
+              <PopoverContent
                 color={'white'}
                 border={0}
                 boxShadow={'xl'}
                 bg={'gray.700'}
                 p={4}
                 rounded={'xl'}
-                  minW={'sm'}>
+                minW={'sm'}>
                 <Stack>
                   {link.children.map((child) => (
                     <DesktopSubNav {...child} />

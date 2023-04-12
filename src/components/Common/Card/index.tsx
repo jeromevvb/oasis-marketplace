@@ -1,11 +1,6 @@
-import {
-  Flex,
-  Box,
-  Image,
-  Badge,
-} from '@chakra-ui/react';
+import { Badge, Box, Flex, Image, } from '@chakra-ui/react';
 
-//👇 Example of Card Data
+/* Example of Card Data */
 
 const cardData = {
   name: 'Tripping Duck',
@@ -19,7 +14,7 @@ const cardData = {
 export default function Card() {
   return (
     <>
-      {/*👇 Container for whole card */}
+      {/* Container for whole card */}
       <Flex
         p={30}
         w="full"
@@ -52,7 +47,11 @@ export default function Card() {
                 </Badge>)}
             </Flex>
             {/* Container for Name */}
-            <Flex mt="1" justify="space-between" alignContent="center" color={'navbar.oasis'}>
+            <Flex
+              mt="1"
+              justify="space-between"
+              alignContent="center"
+              color={'white'}>
               <Box
                 fontSize="2xl"
                 fontWeight="semibold"
@@ -63,7 +62,10 @@ export default function Card() {
               </Box>
             </Flex>
             {/* Container for Price and Currency */}
-            <Flex justify="space-between" align="center" color={'navbar.oasis'}>
+            <Flex
+              justify="space-between"
+              align="center"
+              color={'white'}>
               {/* Container for Price */}
               <Box fontSize="2xl">
               {cardData.price}

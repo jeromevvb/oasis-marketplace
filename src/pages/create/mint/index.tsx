@@ -89,12 +89,12 @@ export default function Mint() {
                   <Button
                     loadingText="Minting"
                     size="lg"
-                    bg={'button.primary'}
+                    bg={'pink.400'}
                     color={'white'}
                     isLoading={isLoading}
                     onClick={handleClick}
                     w={'fit'}
-                    _hover={{bg: 'button.primaryHover'}}>
+                    _hover={{bg: 'yellow.500'}}>
                     Mint
                     </Button>
                     </Link>

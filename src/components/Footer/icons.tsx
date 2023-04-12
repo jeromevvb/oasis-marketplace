@@ -31,7 +31,7 @@ export function SocialButton(props: SocialProps) {
         _hover={_hover}>
         <VisuallyHidden>{label}</VisuallyHidden>
         {children}
-        </chakra.button>
+      </chakra.button>
     </Link>
   );
 };
@@ -45,8 +45,8 @@ export default function Icons() {
         label={'Twitter'}
         href={'https://www.twitter.com/'}
         _hover={{
-          bg: 'background.logo',
-          color: 'icon.twitter'}}>
+          bg: 'white',
+          color: 'blue.500'}}>
         <FaTwitter  />
       </SocialButton>
       {/* YouTube */}
@@ -54,8 +54,8 @@ export default function Icons() {
         label={'YouTube'} 
         href={'https://www.youtube.com/'} 
         _hover={{
-          bg: 'background.logo',
-          color: 'icon.youtube'}}>
+          bg: 'white',
+          color: 'red.500'}}>
         <FaYoutube />
       </SocialButton>
       {/* Instagram */}
@@ -63,8 +63,8 @@ export default function Icons() {
         label={'Instagram'} 
         href={'https://www.instagram.com/'} 
         _hover={{
-          bg: 'background.logo',
-          color: 'icon.instagram'}}>
+          bg: 'white',
+          color: 'pink.500'}}>
         <FaInstagram />
       </SocialButton>
     </>
