@@ -1,112 +1,153 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import Form from './form';
-import { Badge, Box, Button, Flex, Heading, Image, Stack } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  Heading,
+  Image,
+  Input,
+  Stack
+} from '@chakra-ui/react';
 
 /* Example of Data from API */
-export const resultsData = {
+const resultsData = {
   name: 'Tripping Duck',
   imageURL:
     'https://images-platform.99static.com/pULAgn-AED8QzzPGS40V0GCDOEk=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/130/130378/attachment_130378088',
 };
-
+  
+/* Components for Results */
+function Results() {
+  
+  return (
+    <>
+      {/* Container for whole page  */}
+      <Box textAlign="center" color={'white'}>
+        {/* Result title */}
+        <Heading as="h2" size="xl" mt={6} mb={2}>
+          Results for: "{resultsData.name}"
+        </Heading>
+        {/* Stacking of Image */}
+        <Stack
+          spacing={4}
+          mt={'5'}
+          align={'center'}
+          justify={'center'}>
+          {/* Image */}
+          <Image
+            src={resultsData.imageURL}
+            alt={resultsData.name}
+            w={{ base: '200', sm: '500', md: '600' }}
+            h={{ base: '200', sm: '300', md: '400' }} />
+        </Stack>
+        {/* Stacking of Buttons */}
+        <Stack
+          direction={'row'}
+          spacing={5}
+          mt={'8'}
+          align={'center'}
+          justify={'center'}>
+          {/* Try Again Button */}
+          <Link href={'/create'}>
+            <Button
+              size={'lg'}
+              rounded={'lg'}
+              bg={'pink.400'}
+              width={'fit'}
+              _hover={{ bg: 'yellow.500' }}>
+              Try Again
+            </Button>
+          </Link>
+          {/* Mint Button */}
+          <Link href={'/create/mint'}>
+            <Button
+              size={'lg'}
+              rounded={'lg'}
+              bg={'blue.500'}
+              width={'fit'}
+              _hover={{ bg: 'yellow.500' }}>
+              Mint
+            </Button>
+          </Link>
+        </Stack>
+      </Box>
+    </>
+  )
+}
+  
 export default function Create() {
 
-    /* Loading State for button */
+  /* Loading State for button */
   const [isLoading, setIsLoading] = useState(false)
-    /* State for results */
-  const [results, setResults] = useState([])
-    /* State for example badge */
-  const [exampleBadge, setExampleBadge] = useState()
-  
-    /* HandleClick function */
+
+   /* State for badge */
+  const [inputValue, setInputValue] = useState("")
+
+  /* State for results */
+  const [showCreator, setShowCreator] = useState(true);
+  const [showResults, setShowResults] = useState(false);
+
+  /* handleInputValue function for Badge */
+  const handleInputValue = () => {
+    const newValue = 'Tripping Duck';
+    setInputValue(prevValue => prevValue + newValue);
+  };
+
+  /* HandleClick function for Create Button */
   const handleClick = () => {
-    setIsLoading(status => !status);
-    setResults([...results])}
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowCreator(false);
+      setShowResults(true);
+    }, 2000)
 
-  /* Components for Results */
-  
-//   {/* Container for whole page  */ }
-//   <Box textAlign="center" py={10} px={6} color={'white'}>
-//   {/* Result title */}
-//   <Heading as="h2" size="xl" mt={6} mb={2}>
-//     Results for: "{resultsData.name}"
-//   </Heading>
-//   {/* Stacking of Image */}
-//   <Stack
-//     spacing={4}
-//     mt={'5'}
-//     align={'center'}
-//     justify={'center'}>
-//     {/* Image */}
-//     <Image
-//       src={resultsData.imageURL}
-//       alt={resultsData.name}
-//       w={{ base: '200', sm: '500', md: '600' }}
-//       h={{ base: '200', sm: '300', md: '400' }} />
-//   </Stack>
-//   {/* Stacking of Buttons */}
-//   <Stack
-//     direction={'row'}
-//     spacing={5}
-//     mt={'8'}
-//     align={'center'}
-//     justify={'center'}>
-//     {/* Try Again Button */}
-//     <Link href={'/create'}>
-//       <Button
-//         size={'lg'}
-//         rounded={'lg'}
-//         bg={'pink.400'}
-//         width={'fit'}
-//         _hover={{ bg: 'yellow.500' }}>
-//         Try Again
-//       </Button>
-//     </Link>
-//     {/* Mint Button */}
-//     <Link href={'/create/mint'}>
-//       <Button
-//         size={'lg'}
-//         rounded={'lg'}
-//         bg={'blue.500'}
-//         width={'fit'}
-//         _hover={{ bg: 'yellow.500' }}>
-//         Mint
-//       </Button>
-//     </Link>
-//   </Stack>
-// </Box>
+  }
 
-
+  /* Rendering of Results and Creator */
+  // {showResults && <Results />}
+  // {showCreator && <Creator />}
 
   return (
     <>
       {/* Container for whole page */}
       <Flex
-        minH={'100vh'}
-        align={'center'}
-        justify={'center'}
-        color={'white'}>       
+      minH={'100vh'}
+      align={'center'}
+      justify={'center'}
+      color={'white'}>
         {/* Stacking of content */}
         <Stack
           spacing={7}
-          h={{base: '100%', md: '100%' }}
-          w={{base: '85%', md: '100%'}}
+          h={{ base: '100%', md: '100%' }}
+          w={{ base: '85%', md: '100%' }}
           maxW={'lg'}
           bg={'gray.700'}
           rounded={'xl'}
           boxShadow={'lg'}
           align={'center'}
-          p={9}>         
+          p={9}>
           {/* Heading */}
           <Heading
             lineHeight={1.1}
             fontSize={{ base: '2xl', md: '3xl' }}
             textAlign={'center'}>
-            Create Your NFT 
+            Create Your NFT
           </Heading>
           {/* Form */}
-          <Form />
+          <FormControl>
+            <Input
+              type={'text'}
+              size={{ base: 'md', md: 'lg' }}
+              borderColor={'white'}
+              placeholder="Type what you want to create..."
+              _placeholder={{ color: 'gray.400' }}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              _hover={{ borderColor: 'cyan.600' }}/>
+          </FormControl>
           {/* Stacking of Button */}
           <Stack spacing={6}>
             <Button
@@ -115,20 +156,21 @@ export default function Create() {
               isLoading={isLoading}
               loadingText={'Creating'}
               onClick={handleClick}
-              _hover={{bg: 'yellow.500'}}>
+              _hover={{ bg: 'yellow.500' }}>
               Create
             </Button>
           </Stack>
-          <Badge
+          <Button
+            onClick={handleInputValue}
             rounded={"full"}
-            bg={'blue.500'}
-            variant={'solid'}
-            color={'white'}>
+            variant={'outline'}
+            color={'none'}
+            _hover={{
+              bg: 'gray.400'}}>
             Tripping Duck
-          </Badge>
+          </Button>
         </Stack>
       </Flex>
     </>
   );
 }
-

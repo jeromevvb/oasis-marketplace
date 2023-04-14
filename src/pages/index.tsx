@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import Card from "@/components/Common/Card";
-import { Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { cardData } from "@/components/Common/Card";
+import { Box, Badge, Button, Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
 
 export default function Home() {
   return (
@@ -74,7 +74,70 @@ export default function Home() {
           {/* Container for Card */}
           <Flex flex={1}>
             {/* Card Example */}
-            <Card />
+            {/* Container for whole card */}
+            <Flex
+              p={30}
+              w="full"
+              alignItems="center"
+              justify="center">
+              {/* Container for card content */}
+              <Box
+                bg={'blue.700'}
+                maxW="sm"
+                borderWidth="1px"
+                rounded="lg"
+                shadow="lg"
+                position="relative">
+                {/* Image */}
+                <Image
+                  src={cardData.imageURL}
+                  alt={`Picture of ${cardData.name}`}
+                  roundedTop="lg" />
+                {/* Container for Texts and Badge */}
+                <Box p="6">
+                  {/* Container for Badge */}
+                  <Flex align="baseline">
+                    {/* "New" Badge */}
+                    {(<Badge
+                        rounded="full"
+                        px="2"
+                        fontSize="0.8em"
+                        colorScheme="red">
+                        New
+                      </Badge>)}
+                  </Flex>
+                  {/* Container for Name */}
+                  <Flex
+                    mt="1"
+                    justify="space-between"
+                    alignContent="center"
+                    color={'white'}>
+                    <Box
+                      fontSize="2xl"
+                      fontWeight="semibold"
+                      as="h4"
+                      lineHeight="tight"
+                      isTruncated>
+                      {cardData.name}
+                    </Box>
+                  </Flex>
+                  {/* Container for Price and Currency */}
+                  <Flex
+                    justify="space-between"
+                    align="center"
+                    color={'white'}>
+                    {/* Container for Price */}
+                    <Box fontSize="2xl">
+                    {cardData.price}
+                    </Box>
+                    {/* Container for currency */}
+                    <Box as="span" fontSize="lg" >
+                      ETH
+                    </Box>
+                  </Flex>
+                </Box>
+              </Box>
+            </Flex>
           </Flex>
         </Stack>
       </main>

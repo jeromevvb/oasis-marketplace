@@ -2,7 +2,7 @@ import { Badge, Box, Flex, Image, } from '@chakra-ui/react';
 
 /* Example of Card Data */
 
-const cardData = {
+export const cardData = {
   name: 'Tripping Duck',
   imageURL:
     'https://images-platform.99static.com/pULAgn-AED8QzzPGS40V0GCDOEk=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/130/130378/attachment_130378088',
