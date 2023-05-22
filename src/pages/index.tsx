@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Oasis Marketplace</title>
+        <title>Oasis Marketplace | Home</title>
         <meta
           name="description"
           content="Oasis Marketplace: AI NFT Marketplace" />
