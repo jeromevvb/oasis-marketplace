@@ -60,7 +60,7 @@ export default function Header() {
  
   return (
     <>
-      {/*👇 Container for whole Header */}
+      {/* Container for whole Header */}
       <Box bg={'gray.800'} px={4}>
         {/* Container for Header content */}
         <Flex

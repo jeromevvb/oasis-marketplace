@@ -85,7 +85,7 @@ export default function MobileNav() {
     <>
       {/* Stack */} 
       <Stack
-        bg={'navbar.background'}
+        bg={'gray.800'}
         p={4}
         display={{ md: 'none' }}>
         {/* Render */} 

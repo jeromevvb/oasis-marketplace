@@ -2,7 +2,6 @@ import Link from "next/link";
 import Card from "@/components/Common/Card";
 import { useState } from 'react';
 import { CheckCircleIcon } from "@chakra-ui/icons";
-import { resultsData } from "..";
 import {
   Box,
   Button,
@@ -58,7 +57,7 @@ export default function Mint() {
             size={"xl"}
             mt={6}
             mb={2}>
-            You have successfully Minted "{resultsData.name}"
+            You have successfully Minted "Tripping Duck"
           </Heading>
           {/* Stacking of Card */}
           <Stack

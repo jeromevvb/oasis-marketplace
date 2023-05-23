@@ -1,20 +1,16 @@
-import { Flex, Stack } from "@chakra-ui/react";
-import Card from "@/components/Common/Card";
+import { Flex } from "@chakra-ui/react";
+import ExploreSection from "@/components/Sections/ExploreSection";
+import HeadData from "@/components/Head";
 
 export default function Explore() {
   return (
     <>
-      {/*👇 Container for whole page */}
-      <Flex bg={"background.color"} h={{ md: "100vh" }}>
-        {/* Stacking */}
-        <Stack direction={{ base: "column", md: "row" }}>
-          {/* Card 1 */}
-          <Card />
-          {/* Card 2 */}
-          <Card />
-          {/* Card 3 */}
-          <Card />
-        </Stack>
+    <HeadData
+        title={"Explore | Oasis Marketplace"} />
+      {/* Container for whole page */}
+      <Flex bg={"gray.800"} h={{ md: "100vh" }}>
+        {/* Explore Content */}
+        <ExploreSection />
       </Flex>
     </>
   );

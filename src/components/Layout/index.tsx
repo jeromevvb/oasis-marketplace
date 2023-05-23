@@ -1,8 +1,16 @@
 import { Container } from "@chakra-ui/react";
+import { ReactNode } from "react";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-export default function Layout({ children }) {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export default function Layout(props: LayoutProps) {
+
+  const { children } = props;
+
   return (
     <>
       <Header />
