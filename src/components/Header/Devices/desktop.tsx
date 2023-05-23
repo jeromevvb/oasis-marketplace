@@ -7,10 +7,11 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
+  useDisclosure
 } from "@chakra-ui/react";
 import { HeaderProps, Links } from "../";
 
-  /* Connect Wallet Options */
+/* Function for Header Options */
 export function DesktopSubNav(props: HeaderProps) {
 
   const { name, href } = props;
@@ -49,6 +50,8 @@ export function DesktopSubNav(props: HeaderProps) {
 
 export default function DesktopNav() {
 
+  const { isOpen } = useDisclosure();
+
   return (
     <>  
       {/* Stacking */}
@@ -57,7 +60,8 @@ export default function DesktopNav() {
         {Links.map((link) => (
           <Box
             key={link.name}
-            p={2} fontSize={'lg'}
+            p={2}
+            fontSize={'lg'}
             fontWeight={'bold'}
             color={'white'}
             _hover={{
@@ -80,7 +84,7 @@ export default function DesktopNav() {
                 minW={'sm'}>
                 <Stack>
                   {link.children.map((child) => (
-                    <DesktopSubNav {...child} />
+                    <DesktopSubNav key={child.name} {...child} />
                   ))}
                 </Stack>
               </PopoverContent>)}

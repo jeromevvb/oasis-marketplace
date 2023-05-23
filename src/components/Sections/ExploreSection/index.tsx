@@ -1,5 +1,5 @@
-import Card from "@/components/Common/Card";
 import { Stack } from "@chakra-ui/react";
+import Card from "@/components/Common/Card";
 
 export default function ExploreSection() {
   return (

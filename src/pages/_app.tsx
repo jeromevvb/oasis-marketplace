@@ -3,13 +3,11 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import Layout from '@/components/Layout';
 
 /* Dosis fonts */
-    
 import '@fontsource/dosis';
 import '@fontsource/dosis/700.css';
 import '@fontsource/dosis/500.css';
 
 /* Themes */
-
 const theme = extendTheme({
 
   fonts: {

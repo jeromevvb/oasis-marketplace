@@ -4,7 +4,7 @@ import MobileNav from "./Devices/mobile";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Box, Collapse, Flex, IconButton, useDisclosure } from "@chakra-ui/react";
 
-/* 1. Header Props */
+/* Header Props */
 
 export interface HeaderProps {
   name: string;
@@ -13,7 +13,7 @@ export interface HeaderProps {
   href?: string;
 }
 
-/* 2. Object with Header options */
+/* Object with Header options */
 
 export const Links: Array<HeaderProps> = [
 
@@ -26,13 +26,10 @@ export const Links: Array<HeaderProps> = [
     name: "Explore",
     href: "/explore"
   },
-];
 
-/* 3. Connect Wallet */
-
-const Connect: Array<HeaderProps> = [
   {
     name: "Connect Wallet",
+    href: "",
     children: [
       {
         name: 'WalletConnect',
@@ -52,7 +49,8 @@ const Connect: Array<HeaderProps> = [
       },
     ],
   }
-]
+];
+
 
 export default function Header() {
 

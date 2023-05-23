@@ -17,9 +17,6 @@ interface ResultsProps {
 export default function Results(props: ResultsProps) {
 
   const { name, URL, onClick } = props;
-
-  /* Function that checks if onClick is a valid function */
-  const isClickable = typeof onClick === 'function';
   
   return (
     <>

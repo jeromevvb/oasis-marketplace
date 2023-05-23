@@ -3,7 +3,7 @@ import { Collapse, Flex, Icon, Stack, Text, useDisclosure } from "@chakra-ui/rea
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { HeaderProps, Links } from "../";
 
-/* 3. Rendering of Header Options */
+/* Function for Header Options */
 
 function NavLink(props: HeaderProps) {
 
@@ -60,17 +60,20 @@ function NavLink(props: HeaderProps) {
             color={'white'}
             fontWeight={500}
             rounded={'md'}
-            p={2}
-            _hover={{
-              bg: 'navbar.marketplace',
-              color: 'brown',
-              textDecoration: 'none'}}>  
+            p={2}>  
             {/* Rendering */}   
             {children && children.map((child) => (
               <Link
                 key={child.name} 
                 href={`${child.href}`}>
-                {child.name}
+                <Text
+                  rounded={'md'}
+                  p={2}
+                  _hover={{
+                  color: 'brown',
+                  textDecoration: "none"}}>
+                  {child.name}
+                </Text>
               </Link>))}
           </Stack>   
         </Collapse>
@@ -79,7 +82,7 @@ function NavLink(props: HeaderProps) {
   );
 };
 
-/* 4. Rending of Options on Mobile Devices */
+/* Rending of Options on Mobile Devices */
 export default function MobileNav() {
   return (
     <>
@@ -90,7 +93,7 @@ export default function MobileNav() {
         display={{ md: 'none' }}>
         {/* Render */} 
         {Links.map((link) => (
-          <NavLink {...link} />))}
+          <NavLink key={link.name} {...link} />))}
       </Stack>
     </>
   );
