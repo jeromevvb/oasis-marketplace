@@ -16,7 +16,7 @@ export default function Create() {
   /* State for Results */
   const [showResults, setShowResults] = useState(false);
 
-   /* handleBadgeClick function for Badge */
+   /* handleBadgeValue function for Badge */
   const handleBadgeValue = (buttonValue: string) => {
     setInputValue(() => buttonValue);
 

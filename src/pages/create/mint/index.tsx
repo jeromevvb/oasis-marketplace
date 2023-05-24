@@ -9,10 +9,12 @@ export default function Mint() {
   const [isLoading, setIsLoading] = useState(false)
   /* State for input value */
   const [inputValue, setInputValue] = useState("");
-  /* State for Image URL in Minted */
-  const [URLValue, setURLValue] = useState("");
   /* State for Price in Minted */
   const [priceValue, setPriceValue] = useState("");
+  /* State for Copy in Minted */
+  const [copyValue, setCopyValue] = useState("");
+  /* State for Image URL in Minted */
+  const [URLValue, setURLValue] = useState("");
   /* State for Mint Section */
   const [create, setCreate] = useState(true);
   /* State for Minted Results */
@@ -29,10 +31,10 @@ export default function Mint() {
   }
 
   /* handleURLValue function for Card Image */
-  const handleURLValue = (buttonValue: string) => {
-    setInputValue(() => buttonValue);
+  const handleURLValue = (link: string) => {
+    setInputValue(link)
 
-    switch (buttonValue) {
+    switch (link) {
       case 'Tripping Duck':
         setURLValue('https://images-platform.99static.com/pULAgn-AED8QzzPGS40V0GCDOEk=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/130/130378/attachment_130378088');
         break;
@@ -49,8 +51,15 @@ export default function Mint() {
         setURLValue("") 
     };
   }
-
-   /* handleBadgeValue function for Value Input Change */
+  /* handlePriceChange function for Price Value Change */
+  const handlePriceChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPriceValue(e.target.value)
+  }
+  /* handleCopyChange function for Copy Value Change */
+  const handleCopyChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setCopyValue(e.target.value)
+  }
+   /* handleInputChange function for Value Input Change */
    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
     setURLValue("")
@@ -65,14 +74,18 @@ export default function Mint() {
         <Minted
         name={inputValue}
         URL={URLValue}
-        price={priceValue}
-        />}
+        copies={copyValue}
+        price={priceValue} />}
       {create &&
       <MintSection
         MintButtonOnClick={handleClick}
+        nameValue={inputValue}
+        priceValue={priceValue}
+        copyValue={copyValue}
         Loading={isLoading}
-        onChange={handleInputChange}
-        />}
+        onInputChange={handleInputChange}
+        onPriceChange={handlePriceChange}
+        onCopyChange={handleCopyChange} />}
     </>
   )
 }

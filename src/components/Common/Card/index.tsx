@@ -3,6 +3,7 @@ import { Badge, Box, Flex, Image, } from '@chakra-ui/react';
 interface CardProps {
   name: string;
   URL: string;
+  copies?: string;
   price: string;
 }
 

@@ -6,12 +6,13 @@ import { Box, Button, Heading, Stack } from '@chakra-ui/react';
 interface MintedProps {
   name: string;
   URL: string;
+  copies: string;
   price: string;
 }
 
 export default function Minted(props: MintedProps) {
 
-  const { name, URL, price } = props;
+  const { name, URL, copies, price } = props;
 
   return (
     <>

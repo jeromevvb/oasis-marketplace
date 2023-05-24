@@ -18,14 +18,27 @@ import {
 } from '@chakra-ui/react';
 
 interface MintProps {
-  MintButtonOnClick: () => void | Promise<void>;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  nameValue: string | number | undefined;
+  priceValue: string;
+  copyValue: string;
   Loading: boolean | undefined;
+  MintButtonOnClick: () => void | Promise<void>;
+  onInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onPriceChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onCopyChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function MintSection(props: MintProps) {
 
-  const { MintButtonOnClick, onChange, Loading } = props;
+  const {
+    MintButtonOnClick,
+    onInputChange,
+    onPriceChange,
+    onCopyChange,
+    Loading,
+    nameValue,
+    priceValue,
+    copyValue } = props;
 
   return (
     <>
@@ -55,21 +68,24 @@ export default function MintSection(props: MintProps) {
               <Stack spacing={4}>
                 {/* === Form === */}
                 {/* Name */}
-                <FormControl id="Name" isRequired>
+                <FormControl id={"Name"} isRequired>
                   <FormLabel>Name</FormLabel>
                   <Input
-                    type="text"
-                    placeholder='Ex: "Tripping Duck"'
-                  _placeholder={{ color: 'gray.400' }}
-                  onChange={onChange}
-                  _hover={{ borderColor: 'cyan.600' }}
-                  isRequired />
+                    type={"text"}
+                    placeholder={'Ex: Tripping Duck'}
+                    _placeholder={{ color: 'gray.400' }}
+                    value={nameValue}
+                    onChange={onInputChange}
+                    _hover={{ borderColor: 'cyan.600' }} />
                 </FormControl>             
                 {/* Copies */}
-                <FormControl id="Copies" isRequired>
+                <FormControl id={"Copies"} isRequired>
                   <FormLabel>Copies</FormLabel>
-                  <NumberInput max={100} min={1}>
-                  <NumberInputField _hover={{borderColor: 'cyan.600'}} />
+                  <NumberInput max={100} min={1} >
+                  <NumberInputField
+                    onChange={onCopyChange}
+                    value={copyValue}
+                    _hover={{ borderColor: 'cyan.600' }} />
                   <NumberInputStepper>
                     <NumberIncrementStepper color={'white'}/>
                     <NumberDecrementStepper color={'white'}/>
@@ -77,11 +93,15 @@ export default function MintSection(props: MintProps) {
                   </NumberInput>
                 </FormControl>              
                 {/* Price */}
-                <FormControl id="Price" isRequired >
+                <FormControl id={"Price"} isRequired >
                   <FormLabel>Price</FormLabel>
                   {/* Container for input and currency */}
                   <Flex justify={'center'} align={'center'}>
-                    <Input type='number' _hover={{ borderColor: 'cyan.600' }} />
+                  <Input
+                    type={'number'}
+                    _hover={{ borderColor: 'cyan.600' }}
+                    value={priceValue}
+                    onChange={onPriceChange}/>
                     <Text ml={'5'}>ETH</Text>
                   </Flex>
                 </FormControl>
@@ -91,8 +111,8 @@ export default function MintSection(props: MintProps) {
                   <Flex align={'center'} justify={'center'}>
                     <Link href={'/create/mint'}>
                       <Button
-                        loadingText="Minting"
-                        size="lg"
+                        loadingText={"Minting"}
+                        size={"lg"}
                         bg={'pink.400'}
                         color={'white'}
                         isLoading={Loading}
