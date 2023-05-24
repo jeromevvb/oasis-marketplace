@@ -10,17 +10,18 @@ import { ChangeEvent } from 'react';
 
 interface CreateProps {
   BadgeColor: string;
+  BadgeFontSize: string;
   value: string | number | undefined;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onBadgeClick: (e: ChangeEvent<HTMLInputElement>) => void;
   CreateButtonOnClick: () => void | Promise<void>;
-  TextButtonOnClick: () => void | Promise<void>;
+  TextButtonOnClick: (img: string) => void | Promise<void>;
   Loading: boolean | undefined;
 }
 
 export default function CreateSection(props:CreateProps) {
 
-  const { BadgeColor, value, onChange, onBadgeClick, CreateButtonOnClick, TextButtonOnClick, Loading } = props
+  const { BadgeColor, BadgeFontSize, value, onChange, onBadgeClick, CreateButtonOnClick, TextButtonOnClick, Loading } = props
 
   return (
     <>
@@ -78,7 +79,8 @@ export default function CreateSection(props:CreateProps) {
             {/* Tripping Duck */}
           <Button
             bg={BadgeColor}
-            onClick={TextButtonOnClick}
+            fontSize={BadgeFontSize}
+            onClick={() => TextButtonOnClick('Tripping Duck')}
             rounded={"full"}
             variant={'solid'}
             _hover={{
@@ -88,7 +90,8 @@ export default function CreateSection(props:CreateProps) {
           {/* Fancy Eagle */}
           <Button
             bg={BadgeColor}
-            onClick={TextButtonOnClick}
+            fontSize={BadgeFontSize}
+            onClick={() => TextButtonOnClick('Fancy Eagle')}
             rounded={"full"}
             variant={'solid'}
             _hover={{
@@ -98,7 +101,8 @@ export default function CreateSection(props:CreateProps) {
             {/* Pizza Rabbit */}
           <Button
             bg={BadgeColor}
-            onClick={TextButtonOnClick}
+            fontSize={BadgeFontSize}
+            onClick={() => TextButtonOnClick('Pizza Rabbit')}
             rounded={"full"}
             variant={'solid'}
             _hover={{
@@ -108,7 +112,8 @@ export default function CreateSection(props:CreateProps) {
             {/* Tense Zombie */}
           <Button
             bg={BadgeColor}
-            onClick={TextButtonOnClick}
+            fontSize={BadgeFontSize}
+            onClick={() => TextButtonOnClick('Tense Zombie')}
             rounded={"full"}
             variant={'solid'}
             _hover={{

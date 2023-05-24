@@ -3,7 +3,16 @@ import Card from "@/components/Common/Card";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { Box, Button, Heading, Stack } from '@chakra-ui/react';
 
-export default function Minted() {
+interface MintedProps {
+  name: string;
+  URL: string;
+  price: string;
+}
+
+export default function Minted(props: MintedProps) {
+
+  const { name, URL, price } = props;
+
   return (
     <>
       {/* Container for whole page */}
@@ -22,7 +31,7 @@ export default function Minted() {
           size={"xl"}
           mt={6}
           mb={2}>
-          You have successfully Minted "Tripping Duck"
+          You have successfully Minted "{name}"
         </Heading>
         {/* Stacking of Card */}
         <Stack
@@ -32,9 +41,9 @@ export default function Minted() {
           justify={"center"}>
           {/* Card Example */}
           <Card
-          name={"Tripping Duck"}
-          URL={"https://images-platform.99static.com/pULAgn-AED8QzzPGS40V0GCDOEk=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/130/130378/attachment_130378088"}
-          price={"14.900"} />
+          name={name}
+          URL={URL}
+          price={price} />
         </Stack>
         {/* Stacking of Buttons */}
         <Stack

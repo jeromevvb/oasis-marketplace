@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ChangeEvent } from "react";
 import {
   Box,
   Button,
@@ -17,13 +18,14 @@ import {
 } from '@chakra-ui/react';
 
 interface MintProps {
-  onClick: () => void | Promise<void>;
+  MintButtonOnClick: () => void | Promise<void>;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   Loading: boolean | undefined;
 }
 
 export default function MintSection(props: MintProps) {
 
-  const { onClick, Loading } = props;
+  const { MintButtonOnClick, onChange, Loading } = props;
 
   return (
     <>
@@ -53,13 +55,15 @@ export default function MintSection(props: MintProps) {
               <Stack spacing={4}>
                 {/* === Form === */}
                 {/* Name */}
-                <FormControl id="Name">
+                <FormControl id="Name" isRequired>
                   <FormLabel>Name</FormLabel>
                   <Input
                     type="text"
                     placeholder='Ex: "Tripping Duck"'
-                    _placeholder={{ color: 'gray.400' }}
-                    _hover={{ borderColor: 'cyan.600' }} />
+                  _placeholder={{ color: 'gray.400' }}
+                  onChange={onChange}
+                  _hover={{ borderColor: 'cyan.600' }}
+                  isRequired />
                 </FormControl>             
                 {/* Copies */}
                 <FormControl id="Copies" isRequired>
@@ -73,7 +77,7 @@ export default function MintSection(props: MintProps) {
                   </NumberInput>
                 </FormControl>              
                 {/* Price */}
-                <FormControl id="Price">
+                <FormControl id="Price" isRequired >
                   <FormLabel>Price</FormLabel>
                   {/* Container for input and currency */}
                   <Flex justify={'center'} align={'center'}>
@@ -92,7 +96,7 @@ export default function MintSection(props: MintProps) {
                         bg={'pink.400'}
                         color={'white'}
                         isLoading={Loading}
-                        onClick={onClick}
+                        onClick={MintButtonOnClick}
                         w={'fit'}
                         _hover={{bg: 'yellow.500'}}>
                         Mint
