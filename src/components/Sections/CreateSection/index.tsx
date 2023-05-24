@@ -4,13 +4,15 @@ import {
   FormControl,
   Heading,
   Input,
-  Stack
+  Stack,
 } from '@chakra-ui/react';
 import { ChangeEvent } from 'react';
 
 interface CreateProps {
+  BadgeColor: string;
   value: string | number | undefined;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onBadgeClick: (e: ChangeEvent<HTMLInputElement>) => void;
   CreateButtonOnClick: () => void | Promise<void>;
   TextButtonOnClick: () => void | Promise<void>;
   Loading: boolean | undefined;
@@ -18,7 +20,7 @@ interface CreateProps {
 
 export default function CreateSection(props:CreateProps) {
 
-  const { value, onChange, CreateButtonOnClick, TextButtonOnClick, Loading } = props
+  const { BadgeColor, value, onChange, onBadgeClick, CreateButtonOnClick, TextButtonOnClick, Loading } = props
 
   return (
     <>
@@ -55,8 +57,9 @@ export default function CreateSection(props:CreateProps) {
               placeholder="Type what you want to create..."
               _placeholder={{ color: 'gray.400' }}
               value={value}
-              onChange={onChange}
-              _hover={{ borderColor: 'cyan.600' }} />
+              onChange={onChange || onBadgeClick}
+              _hover={{ borderColor: 'cyan.600' }}
+              isRequired/>
           </FormControl>
           {/* Stacking of Button */}
           <Stack spacing={6}>
@@ -70,16 +73,49 @@ export default function CreateSection(props:CreateProps) {
               Create
             </Button>
           </Stack>
+          {/* Badges */}
+          <Stack direction={{base: "column", md: "row"}}>
+            {/* Tripping Duck */}
           <Button
-            bg={'blue.500'}
+            bg={BadgeColor}
             onClick={TextButtonOnClick}
             rounded={"full"}
             variant={'solid'}
-            color={'none'}
             _hover={{
               bg: 'yellow.500'}}>
             Tripping Duck
           </Button>
+          {/* Fancy Eagle */}
+          <Button
+            bg={BadgeColor}
+            onClick={TextButtonOnClick}
+            rounded={"full"}
+            variant={'solid'}
+            _hover={{
+              bg: 'yellow.500'}}>
+              Fancy Eagle
+            </Button>
+            {/* Pizza Rabbit */}
+          <Button
+            bg={BadgeColor}
+            onClick={TextButtonOnClick}
+            rounded={"full"}
+            variant={'solid'}
+            _hover={{
+              bg: 'yellow.500'}}>
+              Pizza Rabbit
+            </Button>
+            {/* Tense Zombie */}
+          <Button
+            bg={BadgeColor}
+            onClick={TextButtonOnClick}
+            rounded={"full"}
+            variant={'solid'}
+            _hover={{
+              bg: 'yellow.500'}}>
+              Tense Zombie
+            </Button>
+          </Stack>
         </Stack>
       </Flex>
     </>

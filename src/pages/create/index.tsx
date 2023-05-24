@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import Results from '@/components/Sections/CreateSection/Results';
 import CreateSection from '@/components/Sections/CreateSection';
 import HeadData from "@/components/Head";
@@ -7,17 +7,45 @@ export default function Create() {
 
   /* Loading State for button */
   const [isLoading, setIsLoading] = useState(false)
-   /* State for badge */
-  const [inputValue, setInputValue] = useState("")
-  /* State for create section and results */
+  /* State for input value */
+  const [inputValue, setInputValue] = useState("");
+  /* State for Image URL in Results */
+  const [URLValue, setURLValue] = useState("");
+  /* State for Create section */
   const [create, setCreate] = useState(true);
+  /* State for Results */
   const [showResults, setShowResults] = useState(false);
 
-  /* handleInputValue function for Badge */
-  const handleInputValue = () => {
-    const newValue = 'Tripping Duck';
-    setInputValue(prevValue => prevValue + newValue);
+   /* handleBadgeClick function for Badge */
+  const handleBadgeValue = () => {
+    setInputValue("Testing")
+    // setURLValue(getBadgeURL(badge));
   };
+
+  // const getBadgeURL = (badge: string) => {
+  //   switch (badge) {
+  //     case 'Tripping Duck':
+  //       return 'https://images-platform.99static.com/pULAgn-AED8QzzPGS40V0GCDOEk=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/130/130378/attachment_130378088';
+  //       break;
+  //     case 'Pizza Rabbit':
+  //       return 'https://i.pinimg.com/736x/10/d2/31/10d2313d6f321909c93b61c332371d0a.jpg';
+  //       break;
+  //     case 'Tense Zombie':
+  //       return 'https://www.seoclerk.com/pics/001/304/405/e4ac00883fbd1fbf6ea19e7e6e3e8d60.jpg';
+  //       break;
+  //     case 'Fancy Eagle':
+  //       return 'https://i.etsystatic.com/30251997/r/il/55b4ea/3715516762/il_570xN.3715516762_ao3a.jpg';
+  //       break;
+  //     default: 
+  //       return ""
+  //     }
+  // }
+
+   /* handleBadgeValue function for Value Input Change */
+   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+   };
+
 
   /* HandleClick function for Create Button */
   const handleClick = () => {
@@ -43,15 +71,17 @@ export default function Create() {
       {/* Results */}
       {showResults &&
         <Results
-        name={"Tripping Duck"}
-        URL={`https://images-platform.99static.com/pULAgn-AED8QzzPGS40V0GCDOEk=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/130/130378/attachment_130378088`}
+          name={inputValue}
+          URL={URLValue}
           onClick={handleCreatePage} />}
       {/* Create */}
       {create &&
         <CreateSection
+          BadgeColor={"blue.500"}
           value={inputValue}
-          onChange={(e:React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
-          TextButtonOnClick={handleInputValue}
+          onBadgeClick={handleBadgeValue}
+          onChange={handleInputChange}
+          TextButtonOnClick={handleBadgeValue}
           CreateButtonOnClick={handleClick}
           Loading={isLoading}
       />}
