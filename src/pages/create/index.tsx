@@ -74,8 +74,7 @@ export default function Create() {
           onChange={handleInputChange}
           TextButtonOnClick={handleBadgeValue}
           CreateButtonOnClick={handleClick}
-          Loading={isLoading}
-      />}
+          Loading={isLoading} />}
       {/* Results */}
       {showResults &&
         <Results

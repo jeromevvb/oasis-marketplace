@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import Card from "@/components/Common/Card";
 import { CheckCircleIcon } from "@chakra-ui/icons";
-import { Box, Button, Heading, Stack } from '@chakra-ui/react';
+import { Box, Button, Heading, Stack, Text } from '@chakra-ui/react';
 
 interface MintedProps {
   name: string;
@@ -13,6 +14,13 @@ interface MintedProps {
 export default function Minted(props: MintedProps) {
 
   const { name, URL, copies, price } = props;
+  
+  /* State for URL value changes */
+  const [linkValue, setLinkValue] = useState("");
+
+  useEffect(() => {
+    setLinkValue(URL);
+  }, [URL]);
 
   return (
     <>
@@ -43,12 +51,16 @@ export default function Minted(props: MintedProps) {
           {/* Card Example */}
           <Card
           name={name}
-          URL={URL}
+          URL={linkValue}
           price={price} />
+          <Text
+          fontSize={"xl"}>
+            Copies: {copies}
+          </Text>
         </Stack>
         {/* Stacking of Buttons */}
         <Stack
-          direction={"row"}
+          direction={{base: "column", sm:"row"}}
           spacing={5}
           mt={"8"}
           align={"center"}

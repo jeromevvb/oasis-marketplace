@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import HeadData from "@/components/Head";
 import MintSection from "@/components/Sections/CreateSection/MintSection";
 import Minted from "@/components/Sections/CreateSection/MintSection/Minted";
@@ -56,13 +56,21 @@ export default function Mint() {
     setPriceValue(e.target.value)
   }
   /* handleCopyChange function for Copy Value Change */
-  const handleCopyChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleCopyInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCopyValue(e.target.value)
+    handleCopyStepperChange(e.target.value);
   }
+
+  const handleCopyStepperChange = (e: string) => {
+    setInputValue(e)
+    setCopyValue(e)
+  };
+
    /* handleInputChange function for Value Input Change */
    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
     setURLValue("")
+    handleURLValue(e.target.value)
   };
   
   /* Rendering */
@@ -85,7 +93,7 @@ export default function Mint() {
         Loading={isLoading}
         onInputChange={handleInputChange}
         onPriceChange={handlePriceChange}
-        onCopyChange={handleCopyChange} />}
+        onCopyInputChange={handleCopyInputChange} />}
     </>
   )
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChangeEvent } from "react";
+import { ChangeEvent, FormEvent } from "react";
 import {
   Box,
   Button,
@@ -17,6 +17,7 @@ import {
   NumberDecrementStepper
 } from '@chakra-ui/react';
 
+/* Props */
 interface MintProps {
   nameValue: string | number | undefined;
   priceValue: string;
@@ -25,7 +26,7 @@ interface MintProps {
   MintButtonOnClick: () => void | Promise<void>;
   onInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onPriceChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onCopyChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onCopyInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function MintSection(props: MintProps) {
@@ -34,7 +35,7 @@ export default function MintSection(props: MintProps) {
     MintButtonOnClick,
     onInputChange,
     onPriceChange,
-    onCopyChange,
+    onCopyInputChange,
     Loading,
     nameValue,
     priceValue,
@@ -44,90 +45,96 @@ export default function MintSection(props: MintProps) {
     <>
       {/* Container for whole page */ }
       <Flex
-          minH={'100vh'}
-          align={'center'}
-          justify={'center'}
-          bg={'background.color'}
-          color={'white'}>       
-          {/* General Stacking for whole content */}
-          <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-            {/* Stacking for Heading */}
-            <Stack align={'center'}>
-              {/* Heading */}
-              <Heading fontSize={'4xl'} textAlign={'center'}>
-              Mint Your NFT
-              </Heading>
-            </Stack>          
-            {/* Container for Form */}
-            <Box
-              rounded={'lg'}
-              bg={'gray.700'}
-              boxShadow={'lg'}
-              p={8}>            
-              {/* Stacking for Form */}
-              <Stack spacing={4}>
-                {/* === Form === */}
-                {/* Name */}
-                <FormControl id={"Name"} isRequired>
-                  <FormLabel>Name</FormLabel>
-                  <Input
-                    type={"text"}
-                    placeholder={'Ex: Tripping Duck'}
-                    _placeholder={{ color: 'gray.400' }}
-                    value={nameValue}
-                    onChange={onInputChange}
-                    _hover={{ borderColor: 'cyan.600' }} />
-                </FormControl>             
-                {/* Copies */}
-                <FormControl id={"Copies"} isRequired>
-                  <FormLabel>Copies</FormLabel>
-                  <NumberInput max={100} min={1} >
+        minH={'100vh'}
+        align={'center'}
+        justify={'center'}
+        bg={'background.color'}
+        color={'white'}>       
+        {/* General Stacking for whole content */}
+        <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+          {/* Stacking for Heading */}
+          <Stack align={'center'}>
+            {/* Heading */}
+            <Heading fontSize={'4xl'} textAlign={'center'}>
+            Mint Your NFT
+            </Heading>
+          </Stack>          
+          {/* Container for Form */}
+          <Box
+            rounded={'lg'}
+            bg={'gray.700'}
+            boxShadow={'lg'}
+            p={8}>            
+            {/* Stacking for Form */}
+            <Stack spacing={4}>
+              {/* === Form === */}
+              {/* Name */}
+              <FormControl id={"Name"} isRequired>
+                <FormLabel>Name</FormLabel>
+                <Input
+                  type={"text"}
+                  placeholder={'Ex: Tripping Duck'}
+                  _placeholder={{ color: 'gray.400' }}
+                  value={nameValue}
+                  onChange={onInputChange}
+                  _hover={{ borderColor: 'cyan.600' }} />
+              </FormControl>             
+              {/* Copies */}
+              <FormControl id={"Copies"} isRequired >
+                <FormLabel>Copies</FormLabel>
+                <NumberInput
+                  max={100}
+                  min={1}>
                   <NumberInputField
-                    onChange={onCopyChange}
+                    onChange={onCopyInputChange}
                     value={copyValue}
                     _hover={{ borderColor: 'cyan.600' }} />
                   <NumberInputStepper>
-                    <NumberIncrementStepper color={'white'}/>
-                    <NumberDecrementStepper color={'white'}/>
+                    <NumberIncrementStepper
+                      color={'white'}
+                      onChange={onCopyInputChange} />
+                    <NumberDecrementStepper
+                      color={'white'}
+                      onChange={onCopyInputChange} />
                   </NumberInputStepper>
-                  </NumberInput>
-                </FormControl>              
-                {/* Price */}
-                <FormControl id={"Price"} isRequired >
-                  <FormLabel>Price</FormLabel>
-                  {/* Container for input and currency */}
-                  <Flex justify={'center'} align={'center'}>
+                </NumberInput>
+              </FormControl>              
+              {/* Price */}
+              <FormControl id={"Price"} isRequired >
+                <FormLabel>Price</FormLabel>
+                {/* Container for input and currency */}
+                <Flex justify={'center'} align={'center'}>
                   <Input
                     type={'number'}
                     _hover={{ borderColor: 'cyan.600' }}
                     value={priceValue}
-                    onChange={onPriceChange}/>
-                    <Text ml={'5'}>ETH</Text>
-                  </Flex>
-                </FormControl>
-                {/* Stacking of Buttons */}
-                <Stack spacing={10} pt={2}>             
-                  {/* Container for Buttons */}
-                  <Flex align={'center'} justify={'center'}>
-                    <Link href={'/create/mint'}>
-                      <Button
-                        loadingText={"Minting"}
-                        size={"lg"}
-                        bg={'pink.400'}
-                        color={'white'}
-                        isLoading={Loading}
-                        onClick={MintButtonOnClick}
-                        w={'fit'}
-                        _hover={{bg: 'yellow.500'}}>
-                        Mint
-                      </Button>
-                    </Link>
-                  </Flex>
-                </Stack>              
-              </Stack>
-            </Box>
-          </Stack>
-        </Flex>
+                    onChange={onPriceChange} />
+                  <Text ml={'5'}>ETH</Text>
+                </Flex>
+              </FormControl>
+              {/* Stacking of Buttons */}
+              <Stack spacing={10} pt={2}>             
+                {/* Container for Buttons */}
+                <Flex align={'center'} justify={'center'}>
+                  <Link href={'/create/mint'}>
+                    <Button
+                      loadingText={"Minting"}
+                      size={"lg"}
+                      bg={'pink.400'}
+                      color={'white'}
+                      isLoading={Loading}
+                      onClick={MintButtonOnClick}
+                      w={'fit'}
+                      _hover={{bg: 'yellow.500'}}>
+                      Mint
+                    </Button>
+                  </Link>
+                </Flex>
+              </Stack>              
+            </Stack>
+          </Box>
+        </Stack>
+      </Flex>
     </>
   )
 }
