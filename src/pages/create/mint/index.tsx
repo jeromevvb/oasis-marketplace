@@ -58,14 +58,7 @@ export default function Mint() {
   /* handleCopyChange function for Copy Value Change */
   const handleCopyInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCopyValue(e.target.value)
-    handleCopyStepperChange(e.target.value);
   }
-
-  const handleCopyStepperChange = (e: string) => {
-    setInputValue(e)
-    setCopyValue(e)
-  };
-
    /* handleInputChange function for Value Input Change */
    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
